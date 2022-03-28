@@ -23,4 +23,22 @@ public class Vente {
     @JoinColumn(name = "articleId",insertable = false,updatable = false)
     private Article article;
     private int articleId;
+    public int getQuantite() {
+        return quantite;
+    }
+    public int getArticleId() {
+        return articleId;
+    }
+    public void setArticleId(int articleId) {
+        this.articleId = articleId;
+    }
+    public LocalDate getDateVente() {
+        return dateVente;
+    }
+    public void setDateVente(LocalDate dateVente) {
+        this.dateVente = dateVente;
+    }
+    public void setQuantite(int quantite) {
+        this.quantite = quantite;
+    }
 }
