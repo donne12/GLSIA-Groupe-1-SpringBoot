@@ -1,0 +1,315 @@
+Categorie:
+
+	>>>>>>>>>>> get /categorie/all
+
+[
+    {
+        "id": 1,
+        "designation": "Electronique"
+    },
+    {
+        "id": 2,
+        "designation": "Numerique"
+    },
+    {
+        "id": 3,
+        "designation": "Analogique"
+    }
+]
+
+
+	>>>>>>>>>>> get /categorie/find/{id}
+
+{
+    "id": 1,
+    "designation": "Electronique"
+}
+
+	>>>>>>>>>>> post /categorie/add
+
+{
+    "designation":"Analogique"
+}
+
+	>>>>>>>>>>> put /categorie/update
+
+{
+    "id": 1,
+    "designation": "Electronique"
+}
+
+	>>>>>>>>>>> delete /categorie/delete/{id}
+
+
+ARTICLE
+
+	>>>>>>>>>> get /article/all
+
+[
+    {
+        "id": 1,
+        "libelle": "Portable",
+        "qteStok": 7,
+        "qteSeuil": 5,
+        "prix": 150000.0,
+        "dateCreation": "2022-03-28",
+        "categoryId": 1,
+        "categorie": {
+            "id": 1,
+            "designation": "Electronique"
+        }
+    },
+    {
+        "id": 2,
+        "libelle": "PC",
+        "qteStok": 14,
+        "qteSeuil": 2,
+        "prix": 755000.0,
+        "dateCreation": "2022-03-28",
+        "categoryId": 2,
+        "categorie": {
+            "id": 2,
+            "designation": "Numerique"
+        }
+    }
+]
+
+	>>>>>>>>> post /article/add
+
+{
+    "categoryId": 3,
+    "libelle":"Montre",
+    "prix": 10000,
+    "qteSeuil": 10,
+    "qteStok": 3
+}
+
+	>>>>>>>>>> get /article/find/{id}
+
+{
+    "id": 2,
+    "libelle": "PC",
+    "qteStok": 5,
+    "qteSeuil": 2,
+    "prix": 755000.0,
+    "dateCreation": "2022-03-28",
+    "categoryId": 2,
+    "categorie": {
+        "id": 2,
+        "designation": "Numerique"
+    }
+}
+
+	>>>>>>>>> put /article/update
+
+{
+    "id": 2,
+    "libelle": "Portable",
+    "qteStok": 25,
+    "qteSeuil": 5,
+    "prix": 150000.0,
+    "dateCreation": null,
+    "categoryId": 1,
+    "categorie": {
+        "id": 1,
+        "designation": "Electronique"
+    }
+}
+
+
+	>>>>>>>>> delete /article/delete/{id}
+
+VENTE
+	>>>>>>>>> get /vente/all
+
+[
+    {
+        "id": 1,
+        "quantite": 1,
+        "dateVente": "2022-03-28",
+        "article": {
+            "id": 2,
+            "libelle": "PC",
+            "qteStok": 4,
+            "qteSeuil": 2,
+            "prix": 755000.0,
+            "dateCreation": "2022-03-28",
+            "categoryId": 2,
+            "categorie": {
+                "id": 2,
+                "designation": "Numerique"
+            }
+        },
+        "articleId": 2
+    },
+    {
+        "id": 2,
+        "quantite": 3,
+        "dateVente": "2022-03-28",
+        "article": {
+            "id": 1,
+            "libelle": "Portable",
+            "qteStok": 7,
+            "qteSeuil": 5,
+            "prix": 150000.0,
+            "dateCreation": "2022-03-28",
+            "categoryId": 1,
+            "categorie": {
+                "id": 1,
+                "designation": "Electronique"
+            }
+        },
+        "articleId": 1
+    }
+]
+
+	>>>>>>>> get /vente/find/{id}
+
+{
+    "id": 1,
+    "quantite": 1,
+    "dateVente": "2022-03-28",
+    "article": {
+        "id": 2,
+        "libelle": "PC",
+        "qteStok": 4,
+        "qteSeuil": 2,
+        "prix": 755000.0,
+        "dateCreation": "2022-03-28",
+        "categoryId": 2,
+        "categorie": {
+            "id": 2,
+            "designation": "Numerique"
+        }
+    },
+    "articleId": 2
+}
+
+	>>>>>>>>> post /vente/add
+
+    {
+        "quantite": 3,
+        "articleId": 1
+        
+    }
+
+	>>>>>>>> delete /vente/delete/{id}
+	>>>>>>>> put /vente/update
+
+    {
+        "id": 1,
+        "quantite": 5,
+        "dateVente": "2022-03-28",
+        "article": {
+            "id": 2,
+            "libelle": "Portable",
+            "qteStok": 25,
+            "qteSeuil": 5,
+            "prix": 150000.0,
+            "dateCreation": null,
+            "categoryId": 1,
+            "categorie": {
+                "id": 1,
+                "designation": "Electronique"
+            }
+        },
+        "articleId": 2
+    }
+
+APPROVISIONNEMENT
+
+	>>>>>>>>> get /approv/all
+
+[
+    {
+        "id": 1,
+        "quantite": 10,
+        "dateApprov": "2022-03-28",
+        "article": {
+            "id": 2,
+            "libelle": "PC",
+            "qteStok": 14,
+            "qteSeuil": 2,
+            "prix": 755000.0,
+            "dateCreation": "2022-03-28",
+            "categoryId": 2,
+            "categorie": {
+                "id": 2,
+                "designation": "Numerique"
+            }
+        },
+        "articleId": 2
+    },
+    {
+        "id": 2,
+        "quantite": 15,
+        "dateApprov": "2022-03-28",
+        "article": {
+            "id": 3,
+            "libelle": "Montre",
+            "qteStok": 18,
+            "qteSeuil": 10,
+            "prix": 10000.0,
+            "dateCreation": "2022-03-28",
+            "categoryId": 3,
+            "categorie": {
+                "id": 3,
+                "designation": "Analogique"
+            }
+        },
+        "articleId": 3
+    }
+]
+
+	>>>>>>>> get /approv/find/{id}
+
+{
+    "id": 1,
+    "quantite": 10,
+    "dateApprov": "2022-03-28",
+    "article": {
+        "id": 2,
+        "libelle": "PC",
+        "qteStok": 14,
+        "qteSeuil": 2,
+        "prix": 755000.0,
+        "dateCreation": "2022-03-28",
+        "categoryId": 2,
+        "categorie": {
+            "id": 2,
+            "designation": "Numerique"
+        }
+    },
+    "articleId": 2
+}
+
+	>>>>>>>>> post /approv/add
+
+{
+    "quantite":15,
+    "articleId":3
+}
+
+	>>>>>>>>> delete /approv/delete/{id}
+
+	>>>>>>>>> put /approv/update
+
+ {
+        "id": 2,
+        "quantite": 10,
+        "dateApprov": "2022-03-28",
+        "article": {
+            "id": 2,
+            "libelle": "Portable",
+            "qteStok": 30,
+            "qteSeuil": 5,
+            "prix": 150000.0,
+            "dateCreation": null,
+            "categoryId": 1,
+            "categorie": {
+                "id": 1,
+                "designation": "Electronique"
+            }
+        },
+        "articleId": 2
+    }
