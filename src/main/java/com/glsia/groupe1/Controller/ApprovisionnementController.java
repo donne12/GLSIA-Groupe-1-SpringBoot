@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
+import static java.util.Objects.isNull;
 
 @Controller
 @RequestMapping("/approv")
@@ -32,7 +33,7 @@ public class ApprovisionnementController {
     @GetMapping("/find/{id}")
     public ResponseEntity<Approvisionnement> getOneApprov(@PathVariable("id") int id){
         Approvisionnement approvisionnement = approvisionnementService.find(id);
-        return new ResponseEntity<>(approvisionnement, HttpStatus.OK);
+        return new ResponseEntity<>(approvisionnement, HttpStatus.FOUND);
     }
 
     @PostMapping("/add")
