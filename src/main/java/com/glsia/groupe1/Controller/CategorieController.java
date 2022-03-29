@@ -12,6 +12,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/categorie")
+@CrossOrigin
 public class CategorieController {
     @Autowired
     private CategorieService categorieService;

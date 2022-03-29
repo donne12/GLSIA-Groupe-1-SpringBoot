@@ -14,6 +14,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/article")
+@CrossOrigin
 public class ArticleController {
     @Autowired
     private ArticleService articleService;

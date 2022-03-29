@@ -16,6 +16,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/approv")
+@CrossOrigin
 public class ApprovisionnementController {
     @Autowired
     private ApprovisionnementService approvisionnementService;

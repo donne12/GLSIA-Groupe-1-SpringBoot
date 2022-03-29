@@ -15,6 +15,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/vente")
+@CrossOrigin
 public class VenteController {
 
     @Autowired
