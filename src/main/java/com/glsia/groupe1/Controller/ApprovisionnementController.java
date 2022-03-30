@@ -7,6 +7,7 @@ import com.glsia.groupe1.service.ApprovisionnementService;
 import com.glsia.groupe1.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +16,7 @@ import java.time.LocalDate;
 import java.util.List;
 import static java.util.Objects.isNull;
 
-@Controller
+@RestController
 @RequestMapping("/approv")
 @CrossOrigin
 public class ApprovisionnementController {
@@ -24,19 +25,19 @@ public class ApprovisionnementController {
     @Autowired
     private ArticleService articleService;
 
-    @GetMapping("/all")
+    @GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Approvisionnement>> getAllApprov(){
         List<Approvisionnement> approvisionnements = approvisionnementService.showAll();
         return new ResponseEntity<>(approvisionnements, HttpStatus.OK);
     }
 
-    @GetMapping("/find/{id}")
+    @GetMapping(value = "/find/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Approvisionnement> getOneApprov(@PathVariable("id") int id){
         Approvisionnement approvisionnement = approvisionnementService.find(id);
-        return new ResponseEntity<>(approvisionnement, HttpStatus.FOUND);
+        return new ResponseEntity<>(approvisionnement, HttpStatus.OK);
     }
 
-    @PostMapping("/add")
+    @PostMapping(value = "/add", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Approvisionnement> addOneApprov(@RequestBody Approvisionnement approvisionnement){
         approvisionnement.setDateApprov(LocalDate.now());
         approvisionnementService.save(approvisionnement);
@@ -47,7 +48,7 @@ public class ApprovisionnementController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @PutMapping("/update")
+    @PutMapping(value = "/update", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Approvisionnement> updateApprov(@RequestBody Approvisionnement approvisionnement){
         approvisionnementService.save(approvisionnement);
         return new ResponseEntity<>(HttpStatus.OK);
