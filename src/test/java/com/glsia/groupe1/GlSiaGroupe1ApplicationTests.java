@@ -9,5 +9,4 @@ class GlSiaGroupe1ApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }
