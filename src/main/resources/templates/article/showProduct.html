@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des Produits</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" >
+</head>
+<body>
+<div class="container" >
+    <h2>Liste des produits</h2>
+    <table class="table table-stripped table-hover" >
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Libelle</th>
+            <th scope="col">Qte Stock</th>
+            <th scope="col">Qte Seuil</th>
+            <th scope="col">Prix</th>
+            <th scope="col">Date Création</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each = "produit:${listArticle}">
+            <th scope="row" th:text = "${produit.id}"></th>
+            <td th:text="${produit.libelle}"></td>
+            <td th:text="${produit.qteStok}"></td>
+            <td th:text="${produit.qteSeuil}"></td>
+            <td th:text="${produit.prix}"></td>
+            <td th:text="${produit.dateCreation}"></td>
+            <td >
+                <a th:href="@{/article/edit/{id}(id=${produit.id})}">Edit |</a>
+                <a th:href="@{/article/delete/{id}(id=${produit.id})}">Delete</a>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+
+</div>
+<script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

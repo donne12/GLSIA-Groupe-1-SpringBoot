@@ -1,22 +1,18 @@
 package com.glsia.groupe1.Controller;
-
+/*
 import com.glsia.groupe1.models.Article;
 import com.glsia.groupe1.models.Vente;
 import com.glsia.groupe1.service.ArticleService;
 import com.glsia.groupe1.service.VenteService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/vente")
-@CrossOrigin
 public class VenteController {
 
     @Autowired
@@ -65,4 +61,7 @@ public class VenteController {
         articleService.save(article);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+
 }
+*/

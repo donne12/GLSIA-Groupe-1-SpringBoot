@@ -1,8 +1,7 @@
 package com.glsia.groupe1.Controller;
-
+/*
 import com.glsia.groupe1.models.Approvisionnement;
 import com.glsia.groupe1.models.Article;
-import com.glsia.groupe1.models.Vente;
 import com.glsia.groupe1.service.ApprovisionnementService;
 import com.glsia.groupe1.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +13,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
-import static java.util.Objects.isNull;
 
-@RestController
+
+@Controller
 @RequestMapping("/approv")
-@CrossOrigin
 public class ApprovisionnementController {
     @Autowired
     private ApprovisionnementService approvisionnementService;
@@ -64,4 +62,7 @@ public class ApprovisionnementController {
         articleService.save(article);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+
 }
+*/

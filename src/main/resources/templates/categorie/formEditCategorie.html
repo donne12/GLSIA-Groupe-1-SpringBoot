@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Mofifier un produit</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" >
+</head>
+<body>
+<div class="container">
+    <h2>Formulaire de modification de produit</h2>
+
+    <form th:action="@{/category/edit}" th:object="${ListCategory}" method="post">
+        <div class="mb-3">
+            <input type="hidden" th:field="*{id}"   class="form-control">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">designation</label>
+            <input type="text" th:field="*{designation}"  class="form-control" placeholder="Libellé du produit">
+        </div>
+         <button type="submit" class="btn btn-primary">Enregistrer</button>
+    </form>
+
+</div>
+
+<script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

@@ -3,53 +3,57 @@ package com.glsia.groupe1.Controller;
 import com.glsia.groupe1.models.Categorie;
 import com.glsia.groupe1.service.CategorieService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/categorie")
-@CrossOrigin
 public class CategorieController {
     @Autowired
     private CategorieService categorieService;
 
-    @GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Categorie>> getAllCategorie(){
-        List<Categorie> categories = categorieService.showAll();
-        return new ResponseEntity<>(categories, HttpStatus.OK);
+    @GetMapping("/index")
+    public String afficherProduit(Model model)
+    {
+        model.addAttribute("listCategorie", categorieService.showAll());
+        return "categorie/showCategorie";
     }
 
-    @GetMapping(value = "/find/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Categorie> getOneCategorie(@PathVariable("id") int id){
-        Categorie categories = categorieService.find(id);
-        return new ResponseEntity<>(categories, HttpStatus.OK);
+    @GetMapping("/create")
+    public String AfficherFormulaire(Model model)
+    {
+        return "categorie/formCategorie";
     }
 
-    @PostMapping(value = "/add", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Categorie> addOneCategorie(@RequestBody Categorie categorie){
+    @PostMapping("/save")
+    public String save(Categorie categorie)
+    {
         categorieService.save(categorie);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return "redirect:/categorie/showCategorie";
     }
 
-    @PutMapping(value = "/update", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Categorie> updateCategorie(@RequestBody Categorie categorie){
+
+    @GetMapping("/edit/{id}")
+    public String formEditProduit(@PathVariable("id") int id, Model model)
+    {
+        model.addAttribute("ListCategorie", categorieService.showAll());
+        return "article/formEditCategorie";
+    }
+
+    @PostMapping("/edit")
+    public String editProduit(@ModelAttribute("categorie") Categorie categorie){
         categorieService.save(categorie);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return "redirect:/categorie/showCategorie";
     }
 
-    @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Categorie> deleteCategorie(@PathVariable("id") int id){
+    @GetMapping("/delete/{id}")
+    public String deleteProduit(@PathVariable("id") int id){
         categorieService.delete(id);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return "redirect:/categorie/showCategorie";
     }
-
-
-
 
 
 

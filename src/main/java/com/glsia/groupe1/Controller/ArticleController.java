@@ -1,54 +1,69 @@
 package com.glsia.groupe1.Controller;
 
 import com.glsia.groupe1.models.Article;
-import com.glsia.groupe1.models.Categorie;
 import com.glsia.groupe1.service.ArticleService;
+import com.glsia.groupe1.service.CategorieService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/article")
-@CrossOrigin
 public class ArticleController {
     @Autowired
     private ArticleService articleService;
+    @Autowired
+    private CategorieService categorieService;
 
-    @GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Article>> getAllArticle(){
-        List<Article> articles = articleService.showAll();
-        return new ResponseEntity<>(articles, HttpStatus.OK);
+    @GetMapping("/index")
+    public String afficherProduit(Model model)
+    {
+        model.addAttribute("listArticle", articleService.showAll());
+        return "article/showProduct";
     }
 
-    @GetMapping(value = "/find/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Article> getOneArticle(@PathVariable("id") int id){
-        Article article = articleService.find(id);
-        return new ResponseEntity<>(article, HttpStatus.OK);
+    @GetMapping("/create")
+    public String AfficherFormulaire(Model model)
+    {
+
+        model.addAttribute("ListCategorie", categorieService.showAll());
+        return "article/formProduit";
     }
 
-    @PostMapping(value = "/add", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Article> addOneArticle(@RequestBody Article article){
+    @PostMapping("/save")
+    public String save(Article article)
+    {
+        article.setQteStok(0);
         article.setDateCreation(LocalDate.now());
+
         articleService.save(article);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return "redirect:/article/index";
     }
 
-    @PutMapping(value = "/update", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Article> updateArticle(@RequestBody Article article){
-        articleService.save(article);
-        return new ResponseEntity<>(HttpStatus.OK);
+
+    @GetMapping("/edit/{id}")
+    public String formEditProduit(@PathVariable("id") int id, Model model)
+    {
+        model.addAttribute("unArticle", articleService.find(id));
+        model.addAttribute("ListCategorie", categorieService.showAll());
+        return "article/formEditProduit";
     }
 
-    @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Article> deleteArticle(@PathVariable("id") int id){
+    @PostMapping("/edit")
+    public String editProduit(@ModelAttribute("article") Article article){
+        articleService.save(article);
+        return "redirect:/article/index";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteProduit(@PathVariable("id") int id){
         articleService.delete(id);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return "redirect:/article/index";
     }
+
 
 }

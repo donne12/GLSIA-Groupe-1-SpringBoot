@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Mofifier un produit</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" >
+</head>
+<body>
+<div class="container">
+    <h2>Formulaire de modification de produit</h2>
+
+    <form th:action="@{/article/edit}" th:object="${unArticle}" method="post">
+        <div class="mb-3">
+            <input type="hidden" th:field="*{id}"   class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="categorieId" class="form-label">Categorie</label>
+            <select name="categoryId" id="categorieId" required>
+                <option value="">Selectionner une categorie</option>
+                <option th:each="categorie:${ListCategorie}"
+                        th:value="${categorie.id}"
+                        th:text="${categorie.designation}"></option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Libelle</label>
+            <input type="text" th:field="*{libelle}"  class="form-control" placeholder="Libellé du produit">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Quantité seuil</label>
+            <input type="number" th:field="*{qteSeuil}"  class="form-control">
+            <input type="hidden" th:field="*{qteStok}"  class="form-control">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Prix </label>
+            <input type="number" th:field="*{prix}"  class="form-control">
+        </div>
+        <div class="mb-3">
+            <input type="hidden" th:field="*{dateCreation}"   class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
+    </form>
+
+</div>
+
+<script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
