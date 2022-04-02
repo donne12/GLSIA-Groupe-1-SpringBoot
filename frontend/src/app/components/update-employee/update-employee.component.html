@@ -1,0 +1,38 @@
+<app-admin></app-admin>
+<h2 style="margin-left:40%">Update Staff</h2>
+<div>
+  <form #userForm="ngForm" (ngSubmit)='updateEmployee(userForm.value)' style="margin-left:30%;margin-right: 30%;">
+    <div class="form-group">
+      <label for="name">ID</label>
+      <input type="number" class="form-control" required ngModel name="id" [(ngModel)]="employee.id" [value]="employee.id" disabled>
+      <small class="text-warning">* cannot update staff id</small>
+    </div>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control"  required ngModel name="name" [(ngModel)]="employee.name" [value]="employee.name">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Role</label>
+      <input type="text" class="form-control"  required ngModel name="role" [(ngModel)]="employee.role" [value]="employee.role">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Email</label>
+      <input type="email" class="form-control"  required ngModel name="email" [(ngModel)]="employee.email" [value]="employee.email">
+    </div>
+ <div class="form-group">
+      <label for="name">PhoneNumber</label>
+      <input type="number" class="form-control" required ngModel name="phoneNumber" [(ngModel)]="employee.phoneNumber"  [value]="employee.phoneNumber">
+    </div>
+    <div class="form-group">
+      <label for="name">Address</label>
+      <input type="text" class="form-control"  required ngModel name="address" [(ngModel)]="employee.address" [value]="employee.address">
+    </div>
+<br>
+
+    <button type="submit" [disabled]="userForm.invalid"  style="margin-left:35%" class="btn btn-primary">Update Staff</button>
+    
+  </form>
+</div>
+

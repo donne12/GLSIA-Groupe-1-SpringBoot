@@ -1,0 +1,45 @@
+<app-admin></app-admin>
+<div>
+    <ul class="navbar-nav mr-auto" style="margin-left: 2%;">
+        <li ngbDropdown class="nav-item dropdown">
+          <a ngbDropdownToggle class="nav-link dropdown-toggle"  id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filter</a>
+          <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
+            <a class="dropdown-item" routerLink="/viewinventorybyhighprice">View By Highest Price</a>
+            <a class="dropdown-item" routerLink="/viewinventorybylowprice">View By Lowest Price</a>
+            <a class="dropdown-item" routerLink="/viewinventorybyquantity">View By Quantity</a>
+            <a class="dropdown-item" routerLink="/viewinventorybyname">View By Product</a>
+            <a class="dropdown-item" routerLink="/viewbyprice">View By Price</a>
+            <a class="dropdown-item" routerLink="/viewbydate">View By Date</a>
+          </div>
+        </li>
+      </ul>
+    <table class="table" >
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Product Name</th>
+                <th>Vendor Name</th>
+                <th>Quantity</th>
+                <th>Purchased Price</th>
+                <th>Tax</th>
+                <th>Manufactured Date</th>
+                <th>Expiry Date</th>
+                <th>Added Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let i of inventory">
+                <td>{{i.id}}</td>
+                <td>{{i.product.name}}</td>
+                <td>{{i.vendor.company}} - {{i.vendor.name}}</td>
+                <td>{{i.quantity}}</td>
+                <td>{{i.purchasedPrice}}</td>
+                <td>{{i.tax}}</td>
+                <td>{{i.manufacturedDate}}</td>
+                <td>{{i.expiryDate}}</td>
+                <td>{{i.addedDate}}</td>
+              </tr>
+        </tbody>
+      </table>
+      
+</div>

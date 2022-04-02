@@ -1,0 +1,34 @@
+<app-admin></app-admin>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2 style="text-align: center">Vendor List</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped" style="text-align: center;">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+      <th>Email</th>
+          <th>Company</th>
+    <th>PhoneNumber</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let vendor of vendors | async">
+          <td>{{vendor.id}}</td>
+          <td>{{vendor.name}}</td>
+          <td>{{vendor.email}}</td>
+          <td>{{vendor.company}}</td>
+          <td>{{vendor.phoneNumber}}</td>
+          <td><button (click)="deleteVendor(vendor.id)" class="btn btn-danger">Delete</button>
+              <button (click)="updateVendor(vendor.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
+              <button (click)="vendorDetails(vendor.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

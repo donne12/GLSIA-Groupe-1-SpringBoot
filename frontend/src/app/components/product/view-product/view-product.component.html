@@ -1,0 +1,50 @@
+<app-admin></app-admin>
+<div>
+    <h5 style="text-align: center;">Today is {{today}}</h5>
+    <h6 class="text-danger" style="margin-left: 2%;">* Products with quantity less than 10 are highlighted with red color</h6>
+    <table class="table" style="text-align: center;">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Image</th>
+                <th>Brand</th>
+                <th>Mrp</th>
+                <th>Description</th>
+                <th>Stock</th>
+                <th>Tax</th>
+                <th>Category</th>
+            </tr>
+        </thead>
+        
+        <tbody *ngFor="let viewproduct of viewProduct">
+                 <tr *ngIf="viewproduct.stock >=10">
+                <td>{{viewproduct.id}}</td>
+                <td>{{viewproduct.name}}</td>
+                <td><img [src]=viewproduct.image width="200px" height="200px" alt="image not loaded"/></td>
+                <td>{{viewproduct.brand}}</td>
+                <td>{{viewproduct.mrp}}</td>
+                <td>{{viewproduct.description}}</td>
+                <td>{{viewproduct.stock}}</td>
+                <td>{{viewproduct.tax}}</td>
+                <td>{{viewproduct.category.name}}</td>
+                </tr>
+
+                <tr *ngIf="viewproduct.stock < 10" class="text-danger">
+                <td>{{viewproduct.id}}</td>
+                <td>{{viewproduct.name}}</td>
+                <td><img [src]=viewproduct.image width="200px" height="200px" alt="image not loaded"/></td>
+                <td>{{viewproduct.brand}}</td>
+                <td>{{viewproduct.mrp}}</td>
+                <td>{{viewproduct.description}}</td>
+                <td>{{viewproduct.stock}}</td>
+                <td>{{viewproduct.tax}}</td>
+                <td>{{viewproduct.category.name}}</td>
+            </tr>
+           
+        </tbody>
+    
+      </table>
+      
+</div>
+

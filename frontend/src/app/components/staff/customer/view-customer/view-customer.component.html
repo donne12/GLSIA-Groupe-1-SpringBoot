@@ -1,0 +1,35 @@
+<app-dashboard></app-dashboard>
+<div>
+    <form #userForm="ngForm" (ngSubmit)='getCustomerById(userForm.value)' style=" margin-left: 400px;">
+        <div>
+            <label>Enter the phone number to search</label>
+            <div class="col-sm-8">
+            <input type="number" placeholder="Enter the phone number to search" name="phoneNumber" class="form-control" ngModel required>
+            </div>
+        </div>
+        <br/>
+        <button type="submit" style="margin-left: 150px;" class="btn btn-primary">Get Customer</button>
+        </form>
+        <br>
+    <table class="table" *ngIf="display">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+              <tr *ngIf="display">
+                <td>{{viewcustomer.phoneNumber}}</td>
+                <td>{{viewcustomer.name}}</td>
+                <td>{{viewcustomer.email}}</td>
+                <td><button class="btn btn-info" style="margin-left: 10px" (click)="addorderbutton()">Add Order</button></td>
+             
+              </tr>
+        </tbody>
+      </table>
+      
+</div>
+

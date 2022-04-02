@@ -1,0 +1,46 @@
+<app-admin></app-admin>
+<div>
+    <form #userForm="ngForm" (ngSubmit)='addInventory(userForm.value)' style=" margin-left: 400px;">
+        <h3 style="margin-left: 130px;">Add Inventory</h3>
+          <div class="form-group col-md-6">
+            <label for="productname">Enter Product Name</label>
+            <select class="form-control"  name="product" ngModel>
+                <option *ngFor = "let p of product" [value]=p.id>{{ p.name }}</option>
+            </select>
+          </div>
+          <br/>
+          <div class="form-group col-md-6">
+            <label for="vendorname">Enter Vendor Name</label>
+            <select class="form-control"  name="vendor" ngModel>
+                <option *ngFor = "let v of vendor" [value]=v.id>{{ v.company }} - {{ v.name }}</option>
+            </select>
+          </div>
+          <br/>
+          <div class="form-group col-md-6">
+            <label for="quantity">Enter Quantity</label>
+            <input type="number" class="form-control" name="quantity" placeholder="Enter Quantity Available"  ngModel required>
+          </div>
+          <br/>
+          <div class="form-group col-md-6">
+            <label for="manufactureddate">Enter Manufactured Date</label>
+            <input type="date" class="form-control" name="manufacturedDate" placeholder="Enter Manufactured Date" ngModel required>
+          </div>
+          <br/>
+          <div class="form-group col-md-6">
+            <label for="expirydate">Enter Expiry Date</label>
+            <input type="date" class="form-control" name="expiryDate" placeholder="Enter Expiry Date" ngModel>
+          </div>
+          <br/>
+          <div class="form-group col-md-6">
+            <label for="purchasedprice">Enter Purchased Price</label>
+            <input type="text" class="form-control" name="purchasedPrice" placeholder="Enter Purchased Price" ngModel required>
+          </div>
+          <br/>
+          <div class="form-group col-md-6">
+            <label for="tax">Enter Tax</label>
+            <input type="text" class="form-control" name="tax" placeholder="Enter Tax"  ngModel required>
+          </div>
+          <br/>
+        <button type="submit" style="margin-left: 150px;" [disabled]="userForm.invalid" class="btn btn-primary">Add Inventory</button>
+      </form>
+</div>

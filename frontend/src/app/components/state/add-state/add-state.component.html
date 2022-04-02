@@ -1,0 +1,22 @@
+<app-admin></app-admin>
+<div>
+    <form #userForm="ngForm" (ngSubmit)='save(userForm.value)' style="margin-top: 50px; margin-left: 400px;">
+        <h3 style="margin-left: 130px;">Add State</h3>
+        <br>    
+        <div>
+            <div class="input-group-prepend">
+                <label> Country Name</label><br>
+             </div>
+          <select required class="form-group col-md-6"  name="country" ngModel >
+            <option value="" selected disabled>Select Country</option>
+            <option *ngFor = "let c of country" [value]=c.id>{{ c.name }}</option>
+          </select>
+          </div><br>
+          <div class="form-group col-md-6">
+            <label for="categoryname">Enter State Name</label>
+            <input type="text" class="form-control" name="name" placeholder="Enter State name" ngModel required>
+        </div>
+          <br>
+        <button type="submit" style="margin-left: 150px;" [disabled]="userForm.invalid" class="btn btn-primary">Add</button>
+      </form>
+</div>

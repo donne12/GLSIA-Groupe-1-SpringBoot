@@ -1,0 +1,22 @@
+<app-dashboard></app-dashboard>
+<div>
+    <form #userForm="ngForm" (ngSubmit)='addCustomer(userForm.value)' style=" margin-left: 400px;">
+        <h3 style="margin-left: 130px;">Add Customer Details</h3>
+        <div class="form-group col-md-6">
+            <label for="producturl">Enter Customer Phone Number</label>
+            <input type="number" class="form-control" name="phoneNumber" placeholder="Enter Phone Number"  ngModel required>
+          </div>
+          <br>
+          <div class="form-group col-md-6">
+            <label for="productname">Enter Customer Name</label>
+            <input type="text" class="form-control" name="name" placeholder="Enter Customer Name"  ngModel required>
+          </div>
+          <br>
+          <div class="form-group col-md-6">
+            <label for="productbrand">Enter Customer Email</label>
+            <input type="email" class="form-control" name="email" placeholder="Enter Customer Email"  ngModel required>
+          </div>
+          <br>
+      <button type="submit" style="margin-left: 150px;" [disabled]="userForm.invalid" class="btn btn-primary">Add Customer</button>
+      </form>
+</div>

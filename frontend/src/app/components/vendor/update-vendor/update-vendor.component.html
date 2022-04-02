@@ -1,0 +1,28 @@
+<app-admin></app-admin>
+<div style="margin-left: 30%;margin-right: 30%;">
+<h3 style="margin-left: 20%">Update Vendor</h3>
+<div style="width: 400px;">
+  <form #userForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name"> Name</label>
+      <input type="text" class="form-control" id="firstName" required [(ngModel)]="vendor.name" name="Name">
+    </div>
+<div class="form-group">
+      <label for="name">Email Id</label>
+      <input type="text" class="form-control" id="email" required [(ngModel)]="vendor.email" name="email">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Phone number</label>
+      <input type="text" class="form-control" id="phoneNumber" required [(ngModel)]="vendor.phoneNumber" name="phoneNumber">
+    </div>
+<div class="form-group">
+      <label for="name">Company</label>
+      <input type="text" class="form-control" id="company" required [(ngModel)]="vendor.company" name="company">
+    </div>
+    
+<br>
+    <button type="submit" [disabled]="userForm.invalid" style="margin-left: 30%" class="btn btn-success">Update vendor</button>
+  </form>
+</div>
+</div>

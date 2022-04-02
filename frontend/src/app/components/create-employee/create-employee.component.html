@@ -1,0 +1,32 @@
+<app-admin></app-admin>
+<h2 style="margin-left: 40%;">Create Staff</h2>
+<div [hidden]="submitted" >
+  <form #userForm="ngForm" (ngSubmit)='addEmployee(userForm.value)' style="margin-left: 30%;margin-right: 30%;">
+   
+    <div class="form-group">
+      <label for="name">Enter name</label><br>
+      <input type="text" class="form-control"  placeholder="Enter name" required ngModel name="name">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Enter role</label><br>
+      <input type="text" class="form-control" placeholder="Enter Role" required ngModel name="role">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Enter email</label><br>
+      <input type="email" class="form-control" placeholder="Enter Email" required ngModel name="email">
+    </div>
+ <div class="form-group">
+      <label for="name">Enter phone number</label><br>
+      <input type="number" class="form-control" placeholder="Enter Phone number" required ngModel name="phoneNumber">
+    </div>
+    <div class="form-group">
+      <label for="name">Enter address</label><br>
+      <input type="text" class="form-control" placeholder="Enter address"  required ngModel name="address">
+    </div>
+    <br>
+    <button style="margin-left: 40%;" [disabled]="userForm.invalid" type="submit" class="btn btn-success">Create Staff</button>
+  </form>
+</div>
+

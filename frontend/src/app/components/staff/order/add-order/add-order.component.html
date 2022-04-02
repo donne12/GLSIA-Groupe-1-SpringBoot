@@ -1,0 +1,62 @@
+<app-dashboard></app-dashboard>
+<div class="container-fluid mb-3">
+    <h3 style="text-align: center;"><b><i>Add order</i></b></h3>
+    <form [formGroup]="AddOrderForm" (ngSubmit)="addOrderItem()" #userForm="ngForm">
+        <table id="addOrder" class="table table-bordered">
+            <tr>
+            <th>Products</th>
+            <td><select class="form-control" class="custom-select" style="width: 190px; height: 50px;" name="product" (ngModelChange)="getavailability($event)"  formControlName="productName">
+                <option value="" selected>Select the product</option>
+                <option *ngFor="let product of productList" [value]=product.id>{{product.name}}</option>
+            </select></td>
+            </tr>
+            <tr>
+                <th>Stock</th>
+                <td><input type="text" class="form-control" name="stock" value={{product?.stock}}  placeholder="Available Stock" readonly="true"></td>
+            </tr>
+            <tr>
+                <th>Price Per Unit</th>
+                <td><input type="text" class="form-control" name="stock" value={{product?.mrp}} placeholder="Price per unit" readonly="true"></td>
+            </tr>
+            <tr>
+                <th>Enter the Quantity</th>
+                <td><input type="number" class="form-control" name="quantity" formControlName="quantity" (keyup)="setQuantity()"  placeholder="Choose the quantity from available stock" ></td>
+            </tr>
+            
+        </table>
+        <div>
+        <small style="margin-left: 12cm" *ngIf="product?.stock==0" class="text-danger">
+            * stock is empty
+        </small>
+        <small style="margin-left: 12cm"  *ngIf="product?.stock < quantity && product?.stock!=0" class="text-danger">
+            * entered quantity is greater than available stock
+        </small>
+        <br><br>
+    </div>
+        <button class="btn btn-info" style="margin-left: 12cm;" [disabled]="product?.stock ==0 || product?.stock < quantity" type="submit">Add Item</button><br>
+        <table *ngIf='length>0' class="table table-bordered">
+        <caption style="text-align: center;"><b><i>Order Item Details</i></b></caption>
+            <tr>
+                <th>Product Name</th>
+                <th>Price per Unit</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+            <tr *ngFor="let orderedItem of orderedItems">
+                <td>{{orderedItem.product.name}}</td>
+                <td>{{orderedItem.product.mrp}}</td>
+                <td>{{orderedItem.quantity}}</td>
+                <td>{{orderedItem.price}}</td>
+            </tr>
+            <tr>
+                <th colspan="3">Total Amount</th>
+                <td>{{order?.totalPrice | number:'1.2-3'}}</td>
+            </tr>
+           
+        </table>
+        <div *ngIf='length>0'>
+            <button id="btn1" (click)="goToPayment()"  class="btn btn-primary">Confirm Order</button>&nbsp;&nbsp;<button id="btn2" class="btn btn-info" type="reset">Cancel</button>
+        </div>
+       
+    </form>
+</div>

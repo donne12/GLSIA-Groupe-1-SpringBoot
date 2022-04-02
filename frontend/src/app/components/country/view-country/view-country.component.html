@@ -1,0 +1,19 @@
+<app-admin></app-admin>
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let view of country">
+                <td>{{view.id}}</td>
+                <td>{{view.name}}</td>
+              </tr>
+        </tbody>
+      </table>
+      
+</div>
+

@@ -1,0 +1,22 @@
+<app-admin></app-admin>
+<div>
+    <table class="center">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th colspan="2">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let viewcategory of viewCategory">
+                <td>{{viewcategory.id}}</td>
+                <td>{{viewcategory.name}}</td>
+                <td><button (click)="deleteCategory(viewcategory.id)" class="btn btn-danger" style="margin-left: 10px">Delete</button></td>
+                <td><button (click)="updateCategory(viewcategory.id)" class="btn btn-success" style="margin-left: 10px">Update</button></td>
+              </tr>
+        </tbody>
+      </table>
+      
+</div>
+

@@ -1,0 +1,32 @@
+<app-admin></app-admin>
+<div style="text-align: center;">
+<h2>Staff Details for id: {{employee.id}}</h2> 
+
+<hr/>
+<div *ngIf="employee">
+  <div>
+    <label><b>ID: </b></label> {{employee.id}}
+  </div>
+  <div>
+    <label><b>Name: </b></label> {{employee.name}}
+  </div>
+  <div>
+    <label><b>Role: </b></label> {{employee.role}}
+  </div>
+  <div>
+    <label><b>Email: </b></label> {{employee.email}}
+  </div>
+
+<div>
+    <label><b>Phone Number:</b></label> {{employee.phoneNumber}}
+  </div>  
+  <div>
+    <label><b>Address: </b></label> {{employee.address}}
+  </div>
+</div>
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Back to Employee List</button><br>
+</div>
+

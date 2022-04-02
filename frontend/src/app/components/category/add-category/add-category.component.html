@@ -1,0 +1,13 @@
+<app-admin></app-admin>
+<div>
+    <form #userForm="ngForm" (ngSubmit)='addCategory(userForm.value)' style="margin-top: 50px; margin-left: 400px;">
+        <h3 style="margin-left: 130px;">Add Category</h3>
+        <br>    
+          <div class="form-group col-md-6">
+            <label for="categoryname">Enter Category Name</label>
+            <input type="text" class="form-control" name="name" placeholder="Enter Category name" pattern="[A-Za-z]" ngModel required>
+        </div>
+          <br>
+        <button type="submit" style="margin-left: 150px;" class="btn btn-primary">Add</button>
+      </form>
+</div>

@@ -1,0 +1,37 @@
+<app-admin></app-admin>
+<div>
+    <form #userForm="ngForm" (ngSubmit)='updateProduct(userForm.value)' style=" margin-left: 400px;">
+        <h3 style="margin-left: 130px;">Update Product</h3>
+          <div class="form-group col-md-6">
+            <label for="productname">Enter Product Name</label>
+            <input type="text" class="form-control" name="name" placeholder="Enter Product name"  [(ngModel)]="product.name" required>
+          </div>
+          <br>
+          <div class="form-group col-md-6">
+            <label for="producturl">Enter Product Image Url</label>
+            <input type="text" class="form-control" name="image" placeholder="Enter Product Image URL" [(ngModel)]="product.image" ngModel required>
+          </div>
+          <br>
+          <div class="form-group col-md-6">
+            <label for="productbrand">Enter Product Brand</label>
+            <input type="text" class="form-control" name="brand" placeholder="Enter Product Brand" [(ngModel)]="product.brand" ngModel required>
+          </div>
+          <br>
+          <div class="form-group col-md-6">
+            <label for="productdescription">Enter Product Description</label>
+            <input type="text" class="form-control" name="description" placeholder="Enter Product Description" [(ngModel)]="product.description" ngModel required>
+          </div>
+          <br>
+          <div>
+            <div class="input-group-prepend">
+                <label> Category Name</label><br>
+             </div>
+          <select required class="form-group col-md-6"  name="category"  ngModel >
+            
+            <option value="" selected disabled>Select Category</option>
+            <option *ngFor = "let c of category"  [value]=c.id>{{ c.name }}</option>
+          </select>
+          </div><br>
+        <button type="submit" [disabled]="userForm.invalid" style="margin-left: 150px;" class="btn btn-primary">Update product</button>
+      </form>
+</div>

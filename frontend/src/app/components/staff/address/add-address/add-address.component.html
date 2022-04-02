@@ -1,0 +1,50 @@
+<app-dashboard></app-dashboard>
+<div>
+    <form #userForm="ngForm" (ngSubmit)='addaddress(userForm.value)' style=" margin-left: 400px;">
+        <h3 style="margin-left: 130px;">Add Address</h3>
+        <div class="form-group col-md-6">
+            <label for="producturl">Enter Address Line</label>
+            <input type="text" class="form-control" name="addressLine" placeholder="Enter Address Line"  ngModel required>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="producturl">Enter City Name</label>
+            <input type="text" class="form-control" name="city" placeholder="Enter City Name"  ngModel required>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="producturl">Enter Pincode</label>
+            <input type="text" class="form-control" name="pinCode" placeholder="Enter Pincode"  ngModel required>
+          </div>
+          
+          <div class="form-group col-md-6">
+            <label for="countryname">Enter the Country Name</label>
+            <select class="form-control"  name="count" ngModel (ngModelChange)="getstate($event)">
+              <option *ngFor = "let c of country" [value]=c.id>{{ c.name }}</option>
+            </select>
+          </div>
+          <!-- <div>
+            <label for="countryname">Enter the Country Name</label>
+            <div class="form-group col-sm-12"> 
+                <select required class="form-group col-md-6"  name="count" ngModel (ngModelChange)="getstate($event)">
+                    <option value="" selected disabled>Select Country</option>
+                    <option *ngFor = "let c of country" [value]=c.id>{{ c.name }}</option>
+                  </select>
+            </div> 
+        </div> -->
+        <!-- <div>
+            <label for="statename">Enter the State Name</label>
+            <div class="form-group col-sm-12"> 
+                <select required class="form-group col-md-6"  name="state" ngModel >
+                    <option value="" selected disabled>Select State</option>
+                    <option *ngFor = "let c of state" [value]=c.id>{{ c.name }}</option>
+                  </select>
+            </div>
+        </div> -->
+        <div class="form-group col-md-6">
+          <label for="statename">Enter the State Name</label>
+          <select class="form-control"  name="state" ngModel >
+            <option *ngFor = "let c of state" [value]=c.id>{{ c.name }}</option>
+          </select>
+        </div>
+      <button type="submit" style="margin-left: 150px;" [disabled]="userForm.invalid"class="btn btn-primary">Add address</button>
+      </form>
+</div>

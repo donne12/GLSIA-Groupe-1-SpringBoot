@@ -1,0 +1,19 @@
+<app-admin></app-admin>
+<div>
+    <table class="center">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let viewcategory of viewCategory">
+                <td>{{viewcategory.id}}</td>
+                <td>{{viewcategory.name}}</td>
+              </tr>
+        </tbody>
+      </table>
+      
+</div>
+

@@ -1,0 +1,73 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Point Of Sale System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+       
+        <li ngbDropdown class="nav-item dropdown">
+          <a ngbDropdownToggle class="nav-link dropdown-toggle"  id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-left: 30px;">Category</a>
+          <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
+            <a class="dropdown-item" routerLink="/addCategory">Add Category</a>
+            <a class="dropdown-item" routerLink="/viewCategory">View Category</a>
+            <a class="dropdown-item" routerLink="/manageCategory">Manage Category </a>
+          </div>
+        </li>
+
+        <li ngbDropdown class="nav-item dropdown">
+          <a ngbDropdownToggle class="nav-link dropdown-toggle"  id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Product</a>
+          <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
+            <a class="dropdown-item" routerLink="/addProduct">Add Product</a>
+            <a class="dropdown-item" routerLink="/viewProduct">View Product</a>
+            <a class="dropdown-item" routerLink="/manageProduct">Manage Product </a>
+          </div>
+        </li>
+        
+        <li ngbDropdown class="nav-item dropdown">
+          <a ngbDropdownToggle class="nav-link dropdown-toggle"  id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Inventory</a>
+          <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
+            <a class="dropdown-item" routerLink="/addinventory">Add Inventory</a>
+            <a class="dropdown-item" routerLink="/viewinventory">View All Inventory</a>
+            <a class="dropdown-item" routerLink="/manageinventory">Manage Inventory </a>
+            <a href="http://localhost:8083/api/inventory/pdf" class="dropdown-item">Generate Pdf</a>
+          </div>
+        </li>
+
+        <li ngbDropdown class="nav-item dropdown">
+          <a ngbDropdownToggle class="nav-link dropdown-toggle"  id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Vendor</a>
+          <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
+            <a class="dropdown-item" routerLink="/addvendors">Add Vendor</a>
+            <a class="dropdown-item" routerLink="/viewvendors">View Vendor</a>
+          </div>
+        </li>
+
+        <li ngbDropdown class="nav-item dropdown">
+          <a ngbDropdownToggle class="nav-link dropdown-toggle"  id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Staff</a>
+          <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
+            <a class="dropdown-item" routerLink="/createEmployee">Add Staff</a>
+            <a class="dropdown-item" routerLink="/employeeList">Manage Staff</a>
+          </div>
+        </li>
+
+        <li ngbDropdown class="nav-item dropdown">
+          <a ngbDropdownToggle class="nav-link dropdown-toggle"  id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Country</a>
+          <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
+            <a class="dropdown-item" routerLink="/addcountry">Add Country</a>
+            <a class="dropdown-item" routerLink="/viewcountry">View Country</a>
+          </div>
+        </li>
+
+        <li ngbDropdown class="nav-item dropdown">
+          <a ngbDropdownToggle class="nav-link dropdown-toggle"  id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">State</a>
+          <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
+            <a class="dropdown-item" routerLink="/addstate">Add State</a>
+            <a class="dropdown-item" routerLink="/viewstate">View State</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <button type="button" class="btn btn-dark" (click)="logout()">Log out</button>
+    </div>
+  </nav>

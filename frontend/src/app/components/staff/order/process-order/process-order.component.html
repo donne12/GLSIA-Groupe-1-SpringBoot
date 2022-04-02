@@ -1,0 +1,60 @@
+<app-dashboard></app-dashboard>
+<div class="container fluid mb-3">
+    <h3 style="text-align: center;"><b><i>Process Order</i></b></h3>
+    <form [formGroup]="ProcessOrderForm" (ngSubmit)="processOrder()">
+        <table class="table table-hover">
+            <tr>
+                <th>Customer Name</th>
+                <td>{{customer?.name}}</td>
+            </tr>
+            <tr>
+                <th>Phone Number</th><td>{{phoneNumber}}</td>
+            </tr>
+            <tr>
+                <th>Email</th><td>{{customer?.email}}</td>
+            </tr>
+            <tr>
+                <th>Address Line</th>
+                <td>{{address[0].addressLine}}</td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td>{{address[0].city}}</td>
+            </tr>
+            <tr>
+                <th>Pincode</th>
+                <td>{{address[0].pinCode}}</td>
+            </tr>
+            <tr>
+                <th>Discount Percent</th>
+                <td>{{orderDetail?.discount}}</td>
+            </tr>
+            <tr>
+                <th>Total Amount</th>
+                <td>{{orderDetail?.totalPrice | number:'1.2-3'}}</td>
+            </tr>
+            <tr>
+                <th>Mode of Payment</th>
+                <td><select class="custom-select" name="modeOfPayment"  formControlName="modeOfPayment" required>
+                    <option value="" selected>Select the payment option</option>
+                    <option>Cash</option>
+                    <option>Credit card</option>
+                    <option>Debit card</option>
+                    <option>Net banking</option>
+                    <option>UPI</option>
+                    <option>Sodexo food card</option>
+                </select></td>
+            </tr>
+        
+         
+        </table>
+        <small style="margin-left: 12cm;">
+            <small *ngIf="modeOfPayment?.invalid &&(modeOfPayment?.touched||modeOfPayment?.dirty)">
+                <small class="alert alert-danger" *ngIf="modeOfPayment?.errors?.required" >* mode of payment is required</small>
+            </small>
+            <br><br>
+        </small>
+        <button style="margin-left: 12cm" [disabled]="modeOfPayment?.invalid" class="btn btn-info">Proceed</button>&nbsp;&nbsp; <button [disabled]="shouldPdf" class="btn btn-success" type="submit" ><a href={{url}}>Generate Receipt</a></button><br>
+
+    </form>
+</div>

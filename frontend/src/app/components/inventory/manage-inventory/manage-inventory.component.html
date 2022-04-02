@@ -1,0 +1,34 @@
+<app-admin></app-admin>
+<div>
+    <table class="table" >
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Product Name</th>
+                <th>Vendor Name</th>
+                <th>Quantity</th>
+                <th>Purchased Price</th>
+                <th>Tax</th>
+                <th>Manufactured Date</th>
+                <th>Expiry Date</th>
+                <th>Added Date</th>
+                <th colspan="2">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let i of inventory">
+                <td>{{i.id}}</td>
+                <td>{{i.product.name}}</td>
+                <td>{{i.vendor.company}} - {{i.vendor.name}}</td>
+                <td>{{i.quantity}}</td>
+                <td>{{i.purchasedPrice}}</td>
+                <td>{{i.tax}}</td>
+                <td>{{i.manufacturedDate}}</td>
+                <td>{{i.expiryDate}}</td>
+                <td>{{i.addedDate}}</td>
+                <td><button (click)="delete(i.id)" class="btn btn-danger" style="margin-left: 10px">Delete</button></td>
+              </tr>
+        </tbody>
+      </table>
+      
+</div>
