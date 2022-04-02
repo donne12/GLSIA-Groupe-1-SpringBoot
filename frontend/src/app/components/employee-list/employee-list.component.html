@@ -1,19 +1,20 @@
 <app-admin></app-admin>
-<div class="panel panel-primary">
+
+<div class="panel panel-default">
   <div class="panel-heading">
-    <h2 style="text-align: center;">Employee List</h2>
+    <h2 style="text-align: center;">Liste du personnel</h2>
   </div>
   <br>
   <div class="panel-body">
-    <table class="table table-striped" style="text-align: center;">
+    <table class="table table-hover" id="dataTables-example1" style="text-align: center;">
       <thead>
         <tr>
           <th>ID</th>
-          <th>Name</th>
-           <th>Email</th>
-           <th>Role</th>
-           <th>PhoneNumber</th>
-           <th>Address</th>
+          <th>Nom et prénoms</th>
+          <th>Email</th>
+          <th>Rôle</th>
+          <th>Téléphone</th>
+          <th>Adresse</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -25,13 +26,15 @@
           <td>{{employee.role}}</td>
           <td>{{employee.phoneNumber}}</td>
           <td>{{employee.address}}</td>
-          <td><button (click)="deleteEmployee(employee.id)" class="btn btn-danger">Delete</button>
-              <button (click)="updateEmployee(employee.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
-              <button (click)="EmployeeDetails(employee.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+          <td>
+            <button (click)="EmployeeDetails(employee.id)" class="btn btn-info"
+              style="margin-left: 10px">Details</button>
+            <button (click)="updateEmployee(employee.id)" class="btn btn-info" style="margin-left: 10px">Editer</button>
+            &nbsp;
+            <button (click)="deleteEmployee(employee.id)" class="btn btn-danger">Supprimer</button>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
 </div>
-

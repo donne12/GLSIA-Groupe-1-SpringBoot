@@ -4,15 +4,15 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Product Name</th>
-                <th>Vendor Name</th>
-                <th>Quantity</th>
-                <th>Purchased Price</th>
-                <th>Tax</th>
-                <th>Manufactured Date</th>
-                <th>Expiry Date</th>
-                <th>Added Date</th>
-                <th colspan="2">Action</th>
+                <th>Nom du produit</th>
+                <th>Vendeur</th>
+                <th>Quantité</th>
+                <th>Prix d'achat</th>
+                <th>Taxe</th>
+                <th>Date de frabrication</th>
+                <th>Date d'expiration</th>
+                <th>Date ajout</th>
+                <th colspan="2">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -26,7 +26,7 @@
                 <td>{{i.manufacturedDate}}</td>
                 <td>{{i.expiryDate}}</td>
                 <td>{{i.addedDate}}</td>
-                <td><button (click)="delete(i.id)" class="btn btn-danger" style="margin-left: 10px">Delete</button></td>
+                <td><button (click)="delete(i.id)" class="btn btn-danger" style="margin-left: 10px">Supprimer</button></td>
               </tr>
         </tbody>
       </table>

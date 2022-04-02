@@ -1,36 +1,36 @@
 <app-admin></app-admin>
 <div>
     <form #userForm="ngForm" (ngSubmit)='addProduct(userForm.value)' style=" margin-left: 400px;">
-        <h3 style="margin-left: 130px;">Add Product</h3>
+        <h3 style="margin-left: 130px;">Ajouter un produit</h3>
           <div class="form-group col-md-6">
-            <label for="productname">Enter Product Name</label>
-            <input type="text" class="form-control" name="name" placeholder="Enter Product name"  ngModel required>
+            <label for="productname">Nom du produit</label>
+            <input type="text" class="form-control" name="name" placeholder=""  ngModel required>
           </div>
           <br>
           <div class="form-group col-md-6">
-            <label for="producturl">Enter Product Image Url</label>
-            <input type="text" class="form-control" name="image" placeholder="Enter Product Image URL"  ngModel required>
+            <label for="producturl">URL de l'image</label>
+            <input type="text" class="form-control" name="image" placeholder=""  ngModel required>
           </div>
           <br>
           <div class="form-group col-md-6">
-            <label for="productbrand">Enter Product Brand</label>
-            <input type="text" class="form-control" name="brand" placeholder="Enter Product Brand"  ngModel required>
+            <label for="productbrand">Marque</label>
+            <input type="text" class="form-control" name="brand" placeholder=""  ngModel required>
           </div>
           <br>
           <div class="form-group col-md-6">
-            <label for="productdescription">Enter Product Description</label>
-            <input type="text" class="form-control" name="description" placeholder="Enter Product Description"  ngModel required>
+            <label for="productdescription">Description</label>
+            <input type="text" class="form-control" name="description" placeholder=""  ngModel required>
           </div>
           <br>
           <div>
             <div class="input-group-prepend">
-                <label> Category Name</label><br>
+                <label>Catégorie</label><br>
              </div>
           <select required class="form-group col-md-6"  name="category" ngModel >
-            <option value="" selected disabled>Select Category</option>
+            <option value="" selected disabled>Choisir la catégorie</option>
             <option *ngFor = "let c of category" [value]=c.id>{{ c.name }}</option>
           </select>
           </div><br>
-        <button type="submit" style="margin-left: 150px;" class="btn btn-primary">Add Product</button>
+        <button type="submit" style="margin-left: 150px;" class="btn btn-primary">Ajouter le produit</button>
       </form>
 </div>

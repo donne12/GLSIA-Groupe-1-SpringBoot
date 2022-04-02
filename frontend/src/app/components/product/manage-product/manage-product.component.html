@@ -4,33 +4,38 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
                 <th>Image</th>
-                <th>Brand</th>
-                <th>Mrp</th>
+
+                <th>Nom</th>
+                <th>Marque</th>
+                <!-- <th>Mrp</th> -->
                 <th>Description</th>
                 <th>Stock</th>
-                <th>Tax</th>
-                <th>Category</th>
+                <!-- <th>Taxe</th> -->
+                <th>Catégorie</th>
                 <th colspan="2">Action</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let viewproduct of viewProduct">
+                
                 <td>{{viewproduct.id}}</td>
+                <td><img [src]="viewproduct.image" alt="Image non chargée" width="100px" height="100px"></td>
+
                 <td>{{viewproduct.name}}</td>
-                <td><img [src]="viewproduct.image" alt="image not loaded" width="200px" height="200px"></td>
                 <td>{{viewproduct.brand}}</td>
-                <td>{{viewproduct.mrp}}</td>
+                <!-- <td>{{viewproduct.mrp}}</td> -->
                 <td>{{viewproduct.description}}</td>
                 <td>{{viewproduct.stock}}</td>
-                <td>{{viewproduct.tax}}</td>
+                <!-- <td>{{viewproduct.tax}}</td> -->
                 <td>{{viewproduct.category.name}}</td>
-                <td><button (click)="deleteProduct(viewproduct.id,viewproduct.category.id)" class="btn btn-danger" style="margin-left: 10px">Delete</button></td>
-                <td><button (click)="updateProduct(viewproduct.id)" class="btn btn-success" style="margin-left: 10px">Update</button></td>
-              </tr>
-        </tbody>
-      </table>
-      
-</div>
+                <td><button (click)="updateProduct(viewproduct.id)" class="btn btn-success"
+                        style="margin-left: 10px">Editer</button></td>
+                <td><button (click)="deleteProduct(viewproduct.id,viewproduct.category.id)" class="btn btn-danger"
+                        style="margin-left: 10px">Supprimer</button></td>
 
+            </tr>
+        </tbody>
+    </table>
+
+</div>

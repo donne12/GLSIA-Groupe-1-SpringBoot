@@ -1,34 +1,37 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="#">Point Of Sale System</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <div class="navbar-brand" href="">GesStock 🛒 | Staff</div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+    aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+
+      <li ngbDropdown class="nav-item dropdown">
+        <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">Clients</a>
+        <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item" routerLink="/addcustomer">Ajouter un client</a>
+          <a class="dropdown-item" routerLink="/viewcustomer">Voir les clients</a>
+        </div>
+      </li>
+    </ul>
+
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav mr-auto">
-       
+
         <li ngbDropdown class="nav-item dropdown">
-          <a ngbDropdownToggle class="nav-link dropdown-toggle"  id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Customer Operations</a>
+          <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">Statistiques</a>
           <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item" routerLink="/addcustomer">Add Customer</a>
-            <a class="dropdown-item" routerLink="/viewcustomer">View Customer</a>
+            <a href="http://localhost:8083/api/get-orders/pdf" class="dropdown-item">Rapport des ventes</a>
           </div>
         </li>
       </ul>
-    
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-      <ul class="navbar-nav mr-auto">
-       
-        <li ngbDropdown class="nav-item dropdown">
-          <a ngbDropdownToggle class="nav-link dropdown-toggle"  id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Staff Operations</a>
-          <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
-            <a href="http://localhost:8083/api/get-orders/pdf" class="dropdown-item">Sales Report</a>
-          </div>
-        </li>
-      </ul>
     </div>
-    </div>
-    <div>
-      
-      <button type="button" class="btn btn-dark" (click)="logout()">Log out</button>
-    </div>
-  </nav>
+  </div>
+  <div>
+
+    <button type="button" class="btn btn-secondary" (click)="logout()">Se déconnecter 🚶🏾‍♂️</button>
+  </div>
+</nav>

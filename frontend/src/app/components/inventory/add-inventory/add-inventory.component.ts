@@ -32,7 +32,7 @@ export class AddInventoryComponent implements OnInit {
     productRequest.tax = Number(productRequest.tax);
     console.log(productRequest);
     this.inventoryService.createInventory(productRequest).subscribe((res)=>{
-      window.alert(res);
+      window.alert("Approvionnement effectuée avec succès.");
       this.router.navigate(['/viewinventory']);
     });
   }

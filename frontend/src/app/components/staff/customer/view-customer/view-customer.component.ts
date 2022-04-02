@@ -44,6 +44,7 @@ export class ViewCustomerComponent implements OnInit {
   addorderbutton() {
     this.order=new Order();
     this.addrServ.get(this.phn).subscribe((res)=>{
+      console.log(res)
       this.addr = res[0].id;
       console.log(this.addr);
       this.orderService.addOrder(this.phn,this.addr,this.order).subscribe(data=>{

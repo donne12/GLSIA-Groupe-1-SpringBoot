@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
    
-    <title>Login</title>
+    <title>GesStock 🛒|Connexion</title>
 
     <!-- Favicons -->
 <!-- <link rel="apple-touch-icon" href="/docs/5.1/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
@@ -41,19 +41,20 @@
 <main class="form-signin">
   <form  #userForm="ngForm" (ngSubmit)='onLogin(userForm.value)'>
    
-    <h1 class="h3 mb-3 fw-normal">Log in</h1>
+    <h1 class="h3 mb-3 fw-normal">Se connecter</h1>
 
     <div class="form-floating">
       <input type="email" class="form-control" id="floatingInput" name="email" ngModel placeholder="name@example.com">
-      <label for="floatingInput">Email address</label>
+      <label for="floatingInput">Email</label>
     </div>
+   
     <div class="form-floating">
       <input type="password" class="form-control" id="floatingPassword" name="password" ngModel placeholder="Password">
-      <label for="floatingPassword">Password</label>
+      <label for="floatingPassword">Mot de passe</label>
     </div>
 
     
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Log in</button>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Valider</button>
    
   </form>
 </main>

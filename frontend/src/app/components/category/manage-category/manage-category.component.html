@@ -4,7 +4,7 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
+                <th>Nom</th>
                 <th colspan="2">Action</th>
             </tr>
         </thead>
@@ -12,8 +12,9 @@
             <tr *ngFor="let viewcategory of viewCategory">
                 <td>{{viewcategory.id}}</td>
                 <td>{{viewcategory.name}}</td>
-                <td><button (click)="deleteCategory(viewcategory.id)" class="btn btn-danger" style="margin-left: 10px">Delete</button></td>
-                <td><button (click)="updateCategory(viewcategory.id)" class="btn btn-success" style="margin-left: 10px">Update</button></td>
+            
+                <td><button (click)="updateCategory(viewcategory.id)" class="btn btn-success" style="margin-left: 10px">Editer</button></td>
+                <td><button (click)="deleteCategory(viewcategory.id)" class="btn btn-danger" style="margin-left: 10px">Supprimer</button></td>
               </tr>
         </tbody>
       </table>

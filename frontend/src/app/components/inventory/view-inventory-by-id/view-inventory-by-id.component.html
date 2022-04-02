@@ -2,24 +2,24 @@
 <div>
     <form #userForm="ngForm" (ngSubmit)='getInventory(userForm.value)' style=" margin-left: 400px;">
     <div>
-        <label>Enter the id of the Inventory</label>
-        <input type="text" placeholder="Enter the id of the inventory" name="id" class="form-control" ngModel required>
+        <label>Entrez l'identifiant de l'approvisionnement</label>
+        <input type="text" placeholder="" name="id" class="form-control" ngModel required>
     </div>
     <br/>
-    <button type="submit" style="margin-left: 150px;" class="btn btn-primary">Get Inventory</button>
+    <button type="submit" style="margin-left: 150px;" class="btn btn-primary">Rechercher</button>
     </form>
     <table class="table" >
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Product Name</th>
-                <th>Vendor Name</th>
-                <th>Quantity</th>
-                <th>Purchased Price</th>
-                <th>Tax</th>
-                <th>Manufactured Date</th>
-                <th>Expiry Date</th>
-                <th>Added Date</th>
+                <th>Nom du produit</th>
+                <th>Vendeur</th>
+                <th>Quantité</th>
+                <th>Prix d'achat</th>
+                <th>Taxe</th>
+                <th>Date de frabrication</th>
+                <th>Date d'expiration</th>
+                <th>Date ajout</th>
             </tr>
         </thead>
         <tbody>

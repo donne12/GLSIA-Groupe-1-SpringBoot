@@ -1,35 +1,35 @@
 <app-admin>
 </app-admin>
 <div style="margin-left: 30%;margin-right: 30%;">
-<h3 style="margin-left: 20%;">Create Vendor</h3>
+<h3 style="margin-left: 20%;">Ajouter un vendeur</h3>
 <div [hidden]="submitted" style="width: 400px;">
   <form #userForm="ngForm"  (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <label for="name">Name</label>
+      <label for="name">Nom et prénoms</label>
       <input type="text" class="form-control" id="name" required [(ngModel)]="vendor.name" name="name">
     </div>
 
    
 
     <div class="form-group">
-      <label for="name">Email Id</label>
+      <label for="name">Email</label>
       <input type="text" class="form-control" id="emailId" required [(ngModel)]="vendor.email" name="emailId">
     </div>
  <div class="form-group">
-      <label for="name">PhoneNumber</label>
+      <label for="name">Téléphone</label>
       <input type="text" class="form-control" id="phoneNumber" required [(ngModel)]="vendor.phoneNumber" name="phoneNumber">
     </div>
  <div class="form-group">
-      <label for="name">Company</label>
+      <label for="name">Societe</label>
       <input type="text" class="form-control" id="company" required [(ngModel)]="vendor.company" name="company">
     </div>
     <br/>
-    <button type="submit" [disabled]="userForm.invalid" style="margin-left: 35%;" class="btn btn-success">Create vendor</button>
+    <button type="submit" [disabled]="userForm.invalid" style="margin-left: 35%;" class="btn btn-success">Valider</button>
   </form>
 </div>
 
 <div [hidden]="!submitted">
-  <h4>You submitted successfully!</h4>
+  <h4>Validation faite avec succès.</h4>
   <!-- <button class="btn btn-success" (click)="newVendor()">Add</button> -->
 </div>
 </div>
