@@ -1,11 +1,12 @@
 package com.glsia.groupe1.Controller;
-/*
+
 import com.glsia.groupe1.models.Article;
 import com.glsia.groupe1.models.Vente;
 import com.glsia.groupe1.service.ArticleService;
 import com.glsia.groupe1.service.VenteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -20,48 +21,56 @@ public class VenteController {
     @Autowired
     private ArticleService articleService;
 
-    @GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Vente>> getAllVente(){
-        List<Vente> ventes = venteService.showAll();
-        return new ResponseEntity<>(ventes, HttpStatus.OK);
+    @GetMapping("/index")
+    public String afficherVente(Model model)
+    {
+        model.addAttribute("listVente", venteService.showAll());
+        return "vente/showApprov";
     }
 
-    @GetMapping(value = "/find/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Vente> getOneVente(@PathVariable("id") int id){
-        Vente vente = venteService.find(id);
-        return new ResponseEntity<>(vente, HttpStatus.OK);
+    @GetMapping("/create")
+    public String AfficherFormulaire(Model model)
+    {
 
+        model.addAttribute("ListVente", venteService.showAll());
+        return "vente/formApprov";
     }
 
-    @PostMapping(value = "/add", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Vente> addOneVente(@RequestBody Vente vente){
+    @PostMapping("/save")
+    public String saveApprov(Vente vente)
+    {
         vente.setDateVente(LocalDate.now());
         venteService.save(vente);
         int article_key = vente.getArticleId();
         Article article = articleService.find(article_key);
         article.setQteStok(article.getQteStok() - vente.getQuantite());
         articleService.save(article);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return "redirect:/vente/index";
     }
 
-    @PutMapping(value = "/update", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Vente> updateVente(@RequestBody Vente vente){
+    @GetMapping("/edit/{id}")
+    public String formEditVente(@PathVariable("id") int id, Model model)
+    {
+        model.addAttribute("unVente", venteService.find(id));
+        return "vente/formEditVente";
+    }
+
+    @PostMapping("/edit")
+    public String editVente(@ModelAttribute("vente") Vente vente){
         venteService.save(vente);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return "redirect:/vente/index";
     }
 
-    @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Article> deleteVente(@PathVariable("id") int id){
+    @GetMapping("/delete/{id}")
+    public String deleteVente(@PathVariable("id") int id){
         Vente vente = venteService.find(id);
-
         int article_key = vente.getArticleId();
         Article article = articleService.find(article_key);
         article.setQteStok(article.getQteStok() + vente.getQuantite());
         venteService.delete(id);
         articleService.save(article);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return "redirect:/vente/index";
     }
 
 
 }
-*/
