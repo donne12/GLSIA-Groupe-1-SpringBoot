@@ -23,7 +23,7 @@ export class CreateEmployeeComponent implements OnInit {
   addEmployee(employee:Employee){
     this.employeeService
     .createEmployee(employee).subscribe(data => {
-     window.alert(data);
+     window.alert("Employé crée avec succès.");
       this.gotoList();
     },
     error => window.alert(error.error)

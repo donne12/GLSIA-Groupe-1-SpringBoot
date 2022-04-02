@@ -1,22 +1,22 @@
 <app-dashboard></app-dashboard>
 <div>
     <form #userForm="ngForm" (ngSubmit)='addCustomer(userForm.value)' style=" margin-left: 400px;">
-        <h3 style="margin-left: 130px;">Add Customer Details</h3>
+        <h3 style="margin-left: 130px;">Ajouter les détails du client</h3>
         <div class="form-group col-md-6">
-            <label for="producturl">Enter Customer Phone Number</label>
-            <input type="number" class="form-control" name="phoneNumber" placeholder="Enter Phone Number"  ngModel required>
+            <label for="producturl">Numéro de téléphone</label>
+            <input type="number" class="form-control" name="phoneNumber" placeholder=""  ngModel required>
           </div>
           <br>
           <div class="form-group col-md-6">
-            <label for="productname">Enter Customer Name</label>
-            <input type="text" class="form-control" name="name" placeholder="Enter Customer Name"  ngModel required>
+            <label for="productname">Nom et prénoms</label>
+            <input type="text" class="form-control" name="name" placeholder=""  ngModel required>
           </div>
           <br>
           <div class="form-group col-md-6">
-            <label for="productbrand">Enter Customer Email</label>
-            <input type="email" class="form-control" name="email" placeholder="Enter Customer Email"  ngModel required>
+            <label for="productbrand">Email</label>
+            <input type="email" class="form-control" name="email" placeholder=""  ngModel required>
           </div>
           <br>
-      <button type="submit" style="margin-left: 150px;" [disabled]="userForm.invalid" class="btn btn-primary">Add Customer</button>
+      <button type="submit" style="margin-left: 150px;" [disabled]="userForm.invalid" class="btn btn-primary">Ajouter le client</button>
       </form>
 </div>

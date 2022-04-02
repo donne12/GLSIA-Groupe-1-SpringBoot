@@ -18,7 +18,7 @@ export class AddCustomerComponent implements OnInit {
   addCustomer(customer:Customer) {
     console.log(customer);
     this.customerService.createCustomer(customer).subscribe((response) => {
-      window.alert(response);
+      window.alert("Détails du client ajoutés avec succès.");
       this.router.navigate(["addaddress",customer.phoneNumber]);
     });
   }

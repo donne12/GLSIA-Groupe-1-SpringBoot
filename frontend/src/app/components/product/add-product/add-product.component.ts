@@ -34,7 +34,7 @@ export class AddProductComponent implements OnInit {
     product.category=this.categoryObj;
     console.log(product);
     this.productService.createProduct(product).subscribe((response) => {
-      window.alert(response);
+      window.alert("Produit ajouté avec succès.");
       this.router.navigate(['/viewProduct']);
     })
   }

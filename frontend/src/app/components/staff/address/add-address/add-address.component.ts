@@ -34,7 +34,7 @@ export class AddAddressComponent implements OnInit {
   addaddress(value:any) {
     value.pinCode = Number(value.pinCode);
     this.addressSer.create(value, this.id as any as number).subscribe((res)=>{
-      window.alert(res);
+      window.alert("Adresse ajoutée faite avec succès.");
       this.gotoList();
     },
     error => window.alert(error.error)

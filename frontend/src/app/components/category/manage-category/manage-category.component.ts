@@ -5,34 +5,33 @@ import { CategoryService } from 'src/app/services/category/category.service';
 @Component({
   selector: 'app-manage-category',
   templateUrl: './manage-category.component.html',
-  styleUrls: ['./manage-category.component.css']
+  styleUrls: ['./manage-category.component.css'],
 })
 export class ManageCategoryComponent implements OnInit {
+  public viewCategory?: any = [];
 
-  public viewCategory?:any=[];
-  
+  constructor(
+    private router: Router,
+    private categoryService: CategoryService
+  ) {}
 
-
-  constructor(private router:Router,private categoryService:CategoryService) { }
-
-  ngOnInit():any {
-    this.categoryService.getAllCategory().subscribe( response => {
+  ngOnInit(): any {
+    this.categoryService.getAllCategory().subscribe((response) => {
       this.viewCategory = response;
-     
-  });
+    });
   }
 
-  deleteCategory(id:number) {
-    this.categoryService.deleteCategory(id).subscribe(response => {
-         
-          window.alert(response);
-          this.router.navigate(['/viewCategory']);
-  },error=> window.alert(error.error)
-  );
+  deleteCategory(id: number) {
+    this.categoryService.deleteCategory(id).subscribe(
+      (response) => {
+        window.alert('Suppresion effectuée avec succès.');
+        this.router.navigate(['/viewCategory']);
+      },
+      (error) => window.alert(error.error)
+    );
   }
 
-  updateCategory(id:number) {
-    this.router.navigate(["updateCategory"],{state:{id:id}});
+  updateCategory(id: number) {
+    this.router.navigate(['updateCategory'], { state: { id: id } });
   }
- 
 }

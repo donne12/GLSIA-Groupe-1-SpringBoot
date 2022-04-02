@@ -25,10 +25,10 @@ export class LoginComponent implements OnInit {
     else{
         this.employeeService.loginValidation(credential).subscribe(data=>{
             if(data=='true'){
-              window.alert("Bienvenue !");
+              window.alert("Connexion réussie. Bienvenue!");
               this.router.navigate(['staff']);
             }else{
-              window.alert("Echec de connexion!");
+              window.alert("Echec de la connexion.");
             }
         });
     }

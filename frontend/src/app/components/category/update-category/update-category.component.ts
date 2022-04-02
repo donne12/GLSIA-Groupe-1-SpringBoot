@@ -32,7 +32,7 @@ export class UpdateCategoryComponent implements OnInit {
   updateCategory(category : Category) {
    
     this.categoryService.updateCategory(this.id,category).subscribe((response) => {
-      window.alert(response);
+      window.alert("Mise à jour faite avec succès.");
       this.router.navigate(['/viewCategory']);
     })
   }

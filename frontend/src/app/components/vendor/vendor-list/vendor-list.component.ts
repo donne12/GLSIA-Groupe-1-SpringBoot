@@ -29,7 +29,7 @@ export class VendorListComponent implements OnInit {
       .subscribe(
         data => {
           console.log(data);
-          window.alert(data);
+          window.alert("Suppression faite avec succès.");
           this.reloadData();
         },
         error => console.log(error));

@@ -22,7 +22,7 @@ export class ManageProductComponent implements OnInit {
   deleteProduct(id:number,categoryId:number) {
     this.productService.deleteProduct(id,categoryId).subscribe(response => {
           console.log(response);
-          window.alert(response);
+          window.alert("Suppression faite avec succès.");
           this.router.navigate(['/viewProduct']);
   });
   }

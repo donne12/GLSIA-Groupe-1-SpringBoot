@@ -20,7 +20,7 @@ export class AddStateComponent implements OnInit {
   }
   save(state:any) {
     this.service.create(state).subscribe((res)=>{
-      window.alert(res);
+      window.alert("Région ajouté avec succès.");
       this.gotoList();
     },
     error => window.alert(error.error)

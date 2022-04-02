@@ -22,7 +22,7 @@ export class ManageInventoryComponent implements OnInit {
 
   delete(id:number) {
     this.inventoryService.deleteInventory(id).subscribe((res)=>{
-      window.alert(res);
+      window.alert("Suppression faite avec succès.");
       this.router.navigate(["manageinventory"]);
     });
   }

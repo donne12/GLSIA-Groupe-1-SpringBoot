@@ -32,7 +32,7 @@ export class UpdateVendorComponent implements OnInit {
     this.vendorService.updateVendor(this.id, this.vendor)
       .subscribe(data => {
         console.log(data);
-        window.alert(data);
+        window.alert("Mise à jour faite avec succès.");
         this.vendor = new Vendor();
         this.gotoList();
       }, error => console.log(error));

@@ -16,7 +16,7 @@ export class AddCountryComponent implements OnInit {
 
   save(country:any) {
     this.service.create(country).subscribe((res)=>{
-      window.alert(res);
+      window.alert("Pays ajouté avec succès.");
       this.gotoList();
     },
     error => window.alert(error.error)

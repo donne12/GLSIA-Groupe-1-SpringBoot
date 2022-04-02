@@ -29,7 +29,7 @@ export class EmployeeListComponent implements OnInit {
     this.employeeService.deleteEmployee(id)
       .subscribe(
         data => {
-         window.alert(data);
+         window.alert("Suppression faite avec succès.");
           this.reloadData();
         },
         error =>  window.alert(error.error));
