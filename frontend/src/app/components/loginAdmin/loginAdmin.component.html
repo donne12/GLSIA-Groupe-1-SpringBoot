@@ -1,14 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>GesStock 🛒|Connexion</title>
-
-
-
 
   <style>
     .bd-placeholder-img {
@@ -26,37 +23,33 @@
     }
   </style>
 
-
   <!-- Custom styles for this template -->
   <!-- <link href="signin.css" rel="stylesheet"> -->
 </head>
 
 <body class="text-center">
-
   <main class="form-signin">
-    <form #userForm="ngForm" (ngSubmit)='onLogin(userForm.value)'>
-      <img src="assets/staff.png"  height="200px" width="200px" > <br> <br>
-      <h1 class="h3 mb-3 fw-normal">Se connecter | Staff</h1>
+    <form #userForm="ngForm" (ngSubmit)="onLogin(userForm.value)">
+      <img src="assets/login.png"  height="200px" width="200px" > <br> <br>
+      <h1 class="h3 mb-3 fw-normal">Se connecter | Admin</h1>
 
       <div class="form-floating">
-        <input type="email" class="form-control" id="floatingInput" name="email" ngModel placeholder="name@example.com">
+        <input type="email" class="form-control" id="floatingInput" name="email" ngModel
+          placeholder="name@example.com" />
         <label for="floatingInput">Email</label>
       </div>
 
       <div class="form-floating">
         <input type="password" class="form-control" id="floatingPassword" name="password" ngModel
-          placeholder="Mot de passe">
+          placeholder="Mot de passe" />
         <label for="floatingPassword">Mot de passe</label>
       </div>
 
-
-      <button class="w-100 btn btn-lg btn-primary" type="submit">Valider</button>
-
+      <button class="w-100 btn btn-lg btn-primary" type="submit">
+        Valider
+      </button>
     </form>
   </main>
-
-
-
 </body>
 
 </html>

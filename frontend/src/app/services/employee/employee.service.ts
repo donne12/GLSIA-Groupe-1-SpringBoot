@@ -33,6 +33,11 @@ export class EmployeeService {
     return this.http.post(`${this.baseUrl}/login`, credential,{headers, responseType : 'text'});
   }
 
+  loginValidationAdmin(credential:Employee){
+    const headers =new HttpHeaders().set('Content_Type', 'text/plain ;charset=utf-8');
+    return this.http.post(`${this.baseUrl}/loginAdmin`, credential,{headers, responseType : 'text'});
+  }
+
   deleteEmployee(id: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
   }

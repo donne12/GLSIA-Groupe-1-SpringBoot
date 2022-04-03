@@ -48,10 +48,12 @@ import { AddOrderComponent } from './components/staff/order/add-order/add-order.
 import { ProcessOrderComponent } from './components/staff/order/process-order/process-order.component';
 import { IndexcomponentComponent } from './components/indexcomponent/indexcomponent.component';
 import { LoginComponent } from './components/login/login.component';
+import { LoginComponentAdmin } from './components/loginAdmin/loginAdmin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponentAdmin,
     AddCategoryComponent,
     ViewCategoryComponent,
     ManageCategoryComponent,

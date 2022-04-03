@@ -7,7 +7,7 @@
             <input type="text" class="form-control" name="addressLine" placeholder=""  ngModel required>
           </div>
           <div class="form-group col-md-6">
-            <label for="producturl">Enter City Name</label>
+            <label for="producturl">Ville</label>
             <input type="text" class="form-control" name="city" placeholder=""  ngModel required>
           </div>
           <div class="form-group col-md-6">
@@ -40,7 +40,7 @@
             </div>
         </div> -->
         <div class="form-group col-md-6">
-          <label for="statename">Pays</label>
+          <label for="statename">Région</label>
           <select class="form-control"  name="state" ngModel >
             <option *ngFor = "let c of state" [value]=c.id>{{ c.name }}</option>
           </select>

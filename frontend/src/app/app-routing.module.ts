@@ -22,6 +22,7 @@ import { ViewInventoryByProductNameComponent } from './components/inventory/view
 import { ViewInventoryByQuantityComponent } from './components/inventory/view-inventory-by-quantity/view-inventory-by-quantity.component';
 import { ViewInventoryComponent } from './components/inventory/view-inventory/view-inventory.component';
 import { LoginComponent } from './components/login/login.component';
+import { LoginComponentAdmin } from './components/loginAdmin/loginAdmin.component';
 import { AddProductComponent } from './components/product/add-product/add-product.component';
 import { ManageProductComponent } from './components/product/manage-product/manage-product.component';
 import { UpdateProductComponent } from './components/product/update-product/update-product.component';
@@ -41,52 +42,64 @@ import { VendorDetailsComponent } from './components/vendor/vendor-details/vendo
 import { VendorListComponent } from './components/vendor/vendor-list/vendor-list.component';
 
 const routes: Routes = [
-  {path:"admin",component:AdminComponent},
-  {path:"addCategory",component:AddCategoryComponent},
-  {path:"viewCategory",component:ViewCategoryComponent},
-  {path:"manageCategory",component:ManageCategoryComponent},
-  {path:"updateCategory",component:UpdateCategoryComponent},
-  {path:"addProduct",component:AddProductComponent},
-  {path:"viewProduct",component:ViewProductComponent},
-  {path:"addinventory",component:AddInventoryComponent},
-  {path:"manageProduct",component:ManageProductComponent},
-  {path:"updateProduct",component:UpdateProductComponent},
-  {path:"viewinventory",component:ViewInventoryComponent},
-  {path:"manageinventory",component:ManageInventoryComponent},
-  {path:"viewinventorybyid",component:ViewInventoryByIdComponent},
-  {path:"viewinventorybyname",component:ViewInventoryByProductNameComponent},
-  {path:"viewinventorybylowprice",component:ViewInventoryByLowPriceComponent},
-  {path:"viewinventorybyhighprice",component:ViewInventoryByHighPriceComponent},
-  {path:"viewinventorybyquantity",component:ViewInventoryByQuantityComponent},
-  {path:"viewbyprice",component:ViewInventoryByPriceComponent},
-  {path:"viewbydate",component:ViewInventoryByDateComponent},
+  { path: 'admin', component: AdminComponent },
+  { path: 'addCategory', component: AddCategoryComponent },
+  { path: 'viewCategory', component: ViewCategoryComponent },
+  { path: 'manageCategory', component: ManageCategoryComponent },
+  { path: 'updateCategory', component: UpdateCategoryComponent },
+  { path: 'addProduct', component: AddProductComponent },
+  { path: 'viewProduct', component: ViewProductComponent },
+  { path: 'addinventory', component: AddInventoryComponent },
+  { path: 'manageProduct', component: ManageProductComponent },
+  { path: 'updateProduct', component: UpdateProductComponent },
+  { path: 'viewinventory', component: ViewInventoryComponent },
+  { path: 'manageinventory', component: ManageInventoryComponent },
+  { path: 'viewinventorybyid', component: ViewInventoryByIdComponent },
+  {
+    path: 'viewinventorybyname',
+    component: ViewInventoryByProductNameComponent,
+  },
+  {
+    path: 'viewinventorybylowprice',
+    component: ViewInventoryByLowPriceComponent,
+  },
+  {
+    path: 'viewinventorybyhighprice',
+    component: ViewInventoryByHighPriceComponent,
+  },
+  {
+    path: 'viewinventorybyquantity',
+    component: ViewInventoryByQuantityComponent,
+  },
+  { path: 'viewbyprice', component: ViewInventoryByPriceComponent },
+  { path: 'viewbydate', component: ViewInventoryByDateComponent },
   // { path: '', redirectTo: 'vendor', pathMatch: 'full' },
   { path: 'viewvendors', component: VendorListComponent },
   { path: 'addvendors', component: CreateVendorComponent },
   { path: 'update/:id', component: UpdateVendorComponent },
   { path: 'details/:id', component: VendorDetailsComponent },
   { path: 'vendorList', component: VendorListComponent },
-  {path:'createEmployee',component:CreateEmployeeComponent},
-  {path:'employeeList',component:EmployeeListComponent},
-  {path:'updateEmployee/:id',component:UpdateEmployeeComponent},
-  {path:'employeeDetails/:id',component:EmployeeDetailsComponent},
-  {path:'addcountry',component:AddCountryComponent},
-  {path:'viewcountry',component:ViewCountryComponent},
-  {path:'addstate',component:AddStateComponent},
-  {path:'viewstate',component:ViewStateComponent},
-  {path:'addaddress/:id',component:AddAddressComponent},
-  {path:'addcustomer',component:AddCustomerComponent},
-  {path:'viewcustomer',component:ViewCustomerComponent},
-  {path:'staff',component:DashboardComponent},
-  {path:'add-order/:id',component:AddOrderComponent},
-  {path:'login',component:LoginComponent},
-  {path:'process-order',component:ProcessOrderComponent},
- {path:'**',component:IndexcomponentComponent},
- 
+  { path: 'createEmployee', component: CreateEmployeeComponent },
+  { path: 'employeeList', component: EmployeeListComponent },
+  { path: 'updateEmployee/:id', component: UpdateEmployeeComponent },
+  { path: 'employeeDetails/:id', component: EmployeeDetailsComponent },
+  { path: 'addcountry', component: AddCountryComponent },
+  { path: 'viewcountry', component: ViewCountryComponent },
+  { path: 'addstate', component: AddStateComponent },
+  { path: 'viewstate', component: ViewStateComponent },
+  { path: 'addaddress/:id', component: AddAddressComponent },
+  { path: 'addcustomer', component: AddCustomerComponent },
+  { path: 'viewcustomer', component: ViewCustomerComponent },
+  { path: 'staff', component: DashboardComponent },
+  { path: 'add-order/:id', component: AddOrderComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'loginAdmin', component: LoginComponentAdmin },
+  { path: 'process-order', component: ProcessOrderComponent },
+  { path: '**', component: IndexcomponentComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
