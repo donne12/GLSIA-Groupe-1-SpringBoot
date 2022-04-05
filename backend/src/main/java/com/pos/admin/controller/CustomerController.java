@@ -46,6 +46,13 @@ public class CustomerController {
 	{
 		return customerService.getCustomerById(phoneNumber);
 	}
+
+	@GetMapping("/customer/all")
+	public ResponseEntity<List<Customer>> getCustomerAll()
+	{
+		List<Customer> countryList = customerService.getAllCustomers();
+		return new ResponseEntity<List<Customer>>(countryList,new HttpHeaders(),HttpStatus.OK);
+	}
 	
 	@PutMapping("/update-customer")
 	public ResponseEntity<String> updateCustomer(@RequestBody Customer customer){

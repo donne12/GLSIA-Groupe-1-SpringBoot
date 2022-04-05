@@ -15,7 +15,7 @@ export class OrderService {
   }
   addOrderItem(orderId:number,productId:number,orderItem:object):Observable<any>
   {
-    return this.http.post(`${this.baseUrl}`+'/order-item/'+'/order/'+`${orderId}`+'/product/'+`${productId}`+'/add-item',orderItem,{responseType:'text'})
+    return this.http.post(`${this.baseUrl}`+'/order-item/'+'order/'+`${orderId}`+'/product/'+`${productId}`+'/add-item',orderItem,{responseType:'text'})
   }
   getOrderId(customerId:number):Observable<any>
   {
@@ -33,6 +33,10 @@ export class OrderService {
   updateOrder(orderId:number,order:object):Observable<any>
   {
     return this.http.put(`${this.baseUrl}`+'/update-order/'+`${orderId}`,order,{responseType:'text'})
+  }
+  deleteOrder(orderId:number):Observable<any>
+  {
+    return this.http.delete(`${this.baseUrl}`+'/delete-order/'+`${orderId}`,{responseType:'text'})
   }
   generateBillReceipt(orderId:number) : Observable<any> {
     const headers =new HttpHeaders().set('Content_Type', 'text/plain ;charset=utf-8');

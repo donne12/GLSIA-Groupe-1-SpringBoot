@@ -34,5 +34,4 @@ public class OrderItemController {
 	{
 		return orderItemService.getOrderedItems(orderId);
 	}
-
 }

@@ -1,22 +1,22 @@
 <app-dashboard></app-dashboard>
 <div class="container-fluid mb-3">
-    <h3 style="text-align: center;"><b><i>Ajouter une commande</i></b></h3>
+    <!-- <h3 style="text-align: center;"><b><i>Ajouter une commande</i></b></h3> -->
     <form [formGroup]="AddOrderForm" (ngSubmit)="addOrderItem()" #userForm="ngForm">
         <table id="addOrder" class="table table-bordered">
             <tr>
             <th>Produits</th>
-            <td><select class="form-control" class="custom-select" style="width: 190px; height: 50px;" name="product" (ngModelChange)="getavailability($event)"  formControlName="productName">
+            <td><select class="form-control" class="custom-select" style="width: 290px; height: 50px;" name="product" (ngModelChange)="getavailability($event)"  formControlName="productName">
                 <option value="" selected>Sélectionnez le produit</option>
                 <option *ngFor="let product of productList" [value]=product.id>{{product.name}}</option>
             </select></td>
             </tr>
             <tr>
                 <th>Stock</th>
-                <td><input type="text" class="form-control" name="stock" value={{product?.stock}}  placeholder="Available Stock" readonly="true"></td>
+                <td><input type="text" class="form-control" name="stock" value={{product?.stock}}  placeholder="Stock disponible" readonly="true"></td>
             </tr>
             <tr>
                 <th>Prix unitaire</th>
-                <td><input type="text" class="form-control" name="stock" value={{product?.mrp}} placeholder="Price per unit" readonly="true"></td>
+                <td><input type="text" class="form-control" name="stock" value={{product?.mrp}} placeholder="Prix unitaire" readonly="true"></td>
             </tr>
             <tr>
                 <th>Entrer la quantité</th>
@@ -31,9 +31,9 @@
         <small style="margin-left: 12cm"  *ngIf="product?.stock < quantity && product?.stock!=0" class="text-danger">
             * La quantité saisie est supérieure au stock disponible
         </small>
-        <br><br>
+        <br><br><br>
     </div>
-        <button class="btn btn-info" style="margin-left: 12cm;" [disabled]="product?.stock ==0 || product?.stock < quantity" type="submit">Add Item</button><br>
+        <button class="btn btn-info" style="margin-left: 12cm;" [disabled]="product?.stock ==0 || product?.stock < quantity" type="submit">Ajouter au panier</button><br>
         <table *ngIf='length>0' class="table table-bordered">
         <caption style="text-align: center;"><b><i>Détails de la commande</i></b></caption>
             <tr>
@@ -55,7 +55,8 @@
            
         </table>
         <div *ngIf='length>0'>
-            <button id="btn1" (click)="goToPayment()"  class="btn btn-primary">Confirmer la commande</button>&nbsp;&nbsp;<button id="btn2" class="btn btn-info" type="reset">Annuler</button>
+            <button id="btn1" (click)="goToPayment()"  class="btn btn-primary">Confirmer la commande</button>
+      <!-- <button id="btn2" class="btn btn-info" (click)="deleteOrder1()" >Annuler</button> -->
         </div>
        
     </form>

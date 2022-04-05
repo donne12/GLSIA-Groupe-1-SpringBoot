@@ -37,7 +37,7 @@ public class OrderController {
 		System.out.println(order);
 		return orderService.addOrder(customerId,addressId,order);
 	}
-	
+
 	@GetMapping("/get-orders")
 		public List<Order> getOrder () {
 			return orderService.getAllOrder();
@@ -47,12 +47,9 @@ public class OrderController {
             produces = MediaType.APPLICATION_PDF_VALUE)
 	    public ResponseEntity<InputStreamResource> salesReport()  {
 	        List<Order> orders =  orderService.getAllOrder();
-	
 	        ByteArrayInputStream bis = SalesReportPDFGenerator.customerPDFReport(orders);
-	
 	        HttpHeaders headers = new HttpHeaders();
 	        headers.add("Content-Disposition", "inline; filename=salesReport.pdf");
-	
 	        return ResponseEntity
 	                .ok()
 	                .headers(headers)
@@ -108,7 +105,5 @@ public class OrderController {
 	@PutMapping("/update-order/{orderId}")
 	public String updateOrder(@PathVariable("orderId") Long orderId,@RequestBody Order order) {
 		return orderService.updateOrder(orderId,order);
-	
-	}	
-
+	}
 }
