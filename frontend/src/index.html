@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 
 <head>
@@ -12,31 +12,153 @@
     <style>
         * {
             font-family: "Bahnschrift";
+        }
 
+        .shadow {
+            /* JUST FOR STYLING */
+            margin-left: 5rem;
+            margin-top: 5rem;
+            /* JUST FOR STYLING */
+            background: linear-gradient(0deg, #fff, #fff);
+        }
+
+        .shadow:before,
+        .shadow:after {
+            content: "";
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            background: linear-gradient(45deg,
+                    #fb0094,
+                    #0000ff,
+                    #00ff00,
+                    #ffff00,
+                    #ff0000,
+                    #fb0094,
+                    #0000ff,
+                    #00ff00,
+                    #ffff00,
+                    #ff0000);
+            background-size: 400%;
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            z-index: -1;
+            animation: animate 20s linear infinite;
+        }
+
+        .shadow:after {
+            filter: blur(10px);
+        }
+
+        @keyframes animate {
+            0% {
+                background-position: 0 0;
+            }
+
+            50% {
+                background-position: 300% 0;
+            }
+
+            100% {
+                background-position: 0 0;
+            }
         }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"
         defer></script>
     <script type="text/javascript" language="javascript">
         $(document).ready(function () {
             (function ($) {
-                $('#filter').keyup(function () {
+                $("#filter").keyup(function () {
+                    var rex = new RegExp($(this).val(), "i");
+                    $(".searchable tr").hide();
+                    $(".searchable tr")
+                        .filter(function () {
+                            return rex.test($(this).text());
+                        })
+                        .show();
+                });
+            })(jQuery);
+        });
 
-                    var rex = new RegExp($(this).val(), 'i');
-                    $('.searchable tr').hide();
-                    $('.searchable tr').filter(function () {
-                        return rex.test($(this).text());
-                    }).show();
+        $(document).ready(function () {
+            makechart();
 
-                })
+            function makechart() {
+                $.ajax({
+                    url: "http://127.0.0.1/myphp/data.php",
+                    method: "POST",
+                    crossDomain: true,
+                    dataType: 'JSON',
+                    data: { action: "fetch" },
+                    success: function (data) {
+                        console.log(data);
+                        var mois = [];
+                        var total = [];
+                        var color = [];
 
-            }(jQuery));
+                        for (var count = 0; count < data.length; count++) {
+                            mois.push(data[count].mois);
+                            total.push(data[count].total);
+                            color.push(data[count].color);
+                        }
 
+                        var chart_data = {
+                            labels: mois,
+                            datasets: [
+                                {
+                                    label: "Ventes",
+                                    backgroundColor: color,
+                                    color: "#fff",
+                                    data: total,
+                                },
+                            ],
+                        };
+
+                        var options = {
+                            responsive: true,
+                            scales: {
+                                yAxes: [
+                                    {
+                                        ticks: {
+                                            min: 0,
+                                        },
+                                    },
+                                ],
+                            },
+                        };
+
+                        var group_chart1 = $("#pie_chart");
+
+                        var graph1 = new Chart(group_chart1, {
+                            type: "pie",
+                            data: chart_data,
+                        });
+
+                        var group_chart2 = $("#doughnut_chart");
+
+                        var graph2 = new Chart(group_chart2, {
+                            type: "doughnut",
+                            data: chart_data,
+                        });
+
+                        var group_chart3 = $("#bar_chart");
+
+                        var graph3 = new Chart(group_chart3, {
+                            type: "bar",
+                            data: chart_data,
+                            options: options,
+                        });
+                    },
+                });
+            }
         });
     </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -49,14 +171,14 @@
 
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>GesStock 🛒 | Groupe 1</title>
-    <base href="/">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet">
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
 </head>
 
 <body>

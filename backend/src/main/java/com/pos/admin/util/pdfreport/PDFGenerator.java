@@ -35,7 +35,7 @@ public class PDFGenerator {
             img.scaleAbsolute(70f, 70f);
             img.setAlignment(Element.ALIGN_CENTER);
             Phrase phrase = new Phrase();
-            phrase.add(new Chunk(img, 0, 0, true));
+            phrase.add(new Chunk(img, 220, 0, true));
 
             document.add(new Paragraph(phrase));
             document.add(Chunk.NEWLINE);
