@@ -29,30 +29,30 @@ public class CategorieController {
     }
 
     @PostMapping("/save")
-    public String save(Categorie categorie)
+    public String save(@ModelAttribute("categorie") Categorie categorie)
     {
         categorieService.save(categorie);
-        return "redirect:/categorie/showCategorie";
+        return "redirect:/categorie/index";
     }
 
 
     @GetMapping("/edit/{id}")
     public String formEditProduit(@PathVariable("id") int id, Model model)
     {
-        model.addAttribute("ListCategorie", categorieService.showAll());
-        return "article/formEditCategorie";
+        model.addAttribute("ListCategorie", categorieService.find(id));
+        return "categorie/formEditCategorie";
     }
 
     @PostMapping("/edit")
     public String editProduit(@ModelAttribute("categorie") Categorie categorie){
         categorieService.save(categorie);
-        return "redirect:/categorie/showCategorie";
+        return "redirect:/categorie/index";
     }
 
     @GetMapping("/delete/{id}")
     public String deleteProduit(@PathVariable("id") int id){
         categorieService.delete(id);
-        return "redirect:/categorie/showCategorie";
+        return "redirect:/categorie/index";
     }
 
 

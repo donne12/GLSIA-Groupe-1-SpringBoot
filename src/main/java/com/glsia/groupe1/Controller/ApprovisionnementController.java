@@ -39,6 +39,14 @@ public class ApprovisionnementController {
         return "approv/formApprov";
     }
 
+    @GetMapping("/create/{id}")
+    public String ApprovisionnerProduit(@PathVariable("id") int id,Model model)
+    {
+        Article article = articleService.find(id);
+        model.addAttribute("Article", article);
+        return "approv/formApprov";
+    }
+
     @PostMapping("/save")
     public String saveApprov(Approvisionnement approvisionnement)
     {
@@ -61,6 +69,7 @@ public class ApprovisionnementController {
 
     @PostMapping("/edit")
     public String editProduit(@ModelAttribute("approvisionnement") Approvisionnement approvisionnement){
+        approvisionnement.setDateApprov(LocalDate.now());
         approvisionnementService.save(approvisionnement);
         return "redirect:/approv/index";
     }

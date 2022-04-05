@@ -20,7 +20,7 @@
                             <a class="nav-link " aria-current="page" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" th:href="@{/approv/index}">Approv</a>
+                            <a class="nav-link active" th:href="@{/approv/index}">Approv</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" th:href="@{/vente/index}">Vente</a>
@@ -29,7 +29,7 @@
                             <a class="nav-link" th:href="@{/categorie/index}">Categorie</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" th:href="@{/article/index}">Article</a>
+                            <a class="nav-link" th:href="@{/article/index}">Article</a>
                         </li>
 
                         <li class="nav-item">
@@ -47,35 +47,29 @@
 </header>
 
 <div class="container" >
-    <h2>Liste des produits</h2>
-    <form th:action="@{/article/create}">
-        <button type="submit" class="btn btn-primary">New Product</button>
+    <h2>Liste des Approvisionnement</h2>
+    <form th:action="@{/article/index}">
+        <button type="submit" class="btn btn-primary">Approvisionner</button>
     </form>
 
     <table class="table table-stripped table-hover" >
         <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Libelle</th>
-            <th scope="col">Qte Stock</th>
-            <th scope="col">Qte Seuil</th>
-            <th scope="col">Prix</th>
-            <th scope="col">Date Création</th>
-            <th scope="col">Action</th>
+            <th scope="col">Article</th>
+            <th scope="col">Quantité</th>
+            <th scope="col">Date</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each = "produit:${listArticle}">
-            <th scope="row" th:text = "${produit.id}"></th>
-            <td th:text="${produit.libelle}"></td>
-            <td th:text="${produit.qteStok}"></td>
-            <td th:text="${produit.qteSeuil}"></td>
-            <td th:text="${produit.prix}"></td>
-            <td th:text="${produit.dateCreation}"></td>
-            <td >
-                <a th:href="@{/article/edit/{id}(id=${produit.id})}">Edit | </a>
-                <a th:href="@{/article/delete/{id}(id=${produit.id})}">Delete | </a>
-                <a th:href="@{/approv/create/{id}(id=${produit.id})}">Approv</a>
+        <tr th:each = "approv:${listApprov}">
+            <th scope="row" th:text = "${approv.id}"></th>
+            <td th:text="${approv.article.libelle}"></td>
+            <td th:text="${approv.quantite}"></td>
+            <td th:text="${approv.dateApprov}"></td>
+            <td>
+                <a th:href="@{/approv/edit/{id}(id=${approv.id})}">Edit | </a>
+                <a th:href="@{/approv/delete/{id}(id=${approv.id})}">Delete</a>
             </td>
         </tr>
 

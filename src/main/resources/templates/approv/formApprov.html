@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Mofifier un produit</title>
+    <title>Title</title>
     <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" >
 </head>
 <body>
@@ -20,16 +20,16 @@
                         <a class="nav-link " aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/approv/index}">Approv</a>
+                        <a class="nav-link active" th:href="@{/approv/index}">Approv</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" th:href="@{/vente/index}">Vente</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active " th:href="@{/categorie/index}">Categorie</a>
+                        <a class="nav-link" th:href="@{/categorie/index}">Categorie</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " th:href="@{/article/index}">Article</a>
+                        <a class="nav-link" th:href="@{/article/index}">Article</a>
                     </li>
 
                     <li class="nav-item">
@@ -45,18 +45,26 @@
     </nav>
 
 </header>
-<div class="container">
-    <h2>Formulaire de modification de produit</h2>
 
-    <form th:action="@{/categorie/edit}" th:object="${ListCategorie}" method="post">
+<div class="container">
+    <h2>Formulaire de saisie de produit</h2>
+
+    <form th:action="@{/approv/save}" method="post">
         <div class="mb-3">
-            <input type="hidden" th:field="*{id}"   class="form-control">
+            <label  class="form-label">Article</label>
+            <select name="articleId"  required>
+                <option th:each="article:${Article}"
+                        th:value="${article.id}"
+                        th:text="${article.libelle}"></option>
+            </select>
         </div>
+
         <div class="mb-3">
-            <label class="form-label">designation</label>
-            <input type="text" th:field="*{designation}"  class="form-control" placeholder="Libellé du produit">
+            <label class="form-label">Quantite</label>
+            <input type="number" name="quantite" value="" class="form-control">
         </div>
-         <button type="submit" class="btn btn-primary">Enregistrer</button>
+
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
     </form>
 
 </div>

@@ -6,8 +6,50 @@
     <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" >
 </head>
 <body>
+<header>
+
+    <nav class="navbar navbar-expand-lg  navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar scroll</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/approv/index}">Approv</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/vente/index}">Vente</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active " th:href="@{/categorie/index}">Categorie</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " th:href="@{/article/index}">Article</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link disabled">Link</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+</header>
 <div class="container" >
-    <h2>Liste des produits</h2>
+    <h2>Liste des Categories</h2>
+    <form th:action="@{/categorie/create}">
+        <button type="submit" class="btn btn-primary">New Categorie</button>
+    </form>
     <table class="table table-stripped table-hover" >
         <thead>
         <tr>
@@ -17,13 +59,13 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each = "category:${ListCategory}">
+        <tr th:each = "category:${listCategorie}">
             <th scope="row" th:text = "${category.id}"></th>
             <td th:text="${category.designation}"></td>
 
             <td >
-                <a th:href="@{/category/edit/{id}(id=${category.id})}">Edit |</a>
-                <a th:href="@{/category/delete/{id}(id=${category.id})}">Delete</a>
+                <a th:href="@{/categorie/edit/{id}(id=${category.id})}">Edit |</a>
+                <a th:href="@{/categorie/delete/{id}(id=${category.id})}">Delete</a>
             </td>
         </tr>
 
