@@ -2,11 +2,12 @@ package com.pos.admin.controller;
 import java.util.List;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,7 +26,6 @@ import com.pos.admin.entity.Employee;
 import com.pos.admin.exception.DuplicateIdException;
 import com.pos.admin.exception.IdNotFoundException;
 import com.pos.admin.service.EmployeeService;
-import org.springframework.beans.factory.annotation.Autowired;
 
 @RestController
 @RequestMapping("/api")
@@ -34,7 +34,8 @@ public class EmployeeController {
 
 	private AuthenticationManager authenticationManager;
 
-	JWTTokenHelper jWTTokenHelper;
+
+	
 
 	@Autowired
 	private EmployeeService employeeService;
@@ -43,57 +44,54 @@ public class EmployeeController {
 	public ResponseEntity<List<Employee>> getAllEmployee(){
 		return new ResponseEntity<>(employeeService.getAllEmployee(),new HttpHeaders(),HttpStatus.OK);
 	}
-	
+
 	@GetMapping("/employee/{id}")
 	public ResponseEntity<Employee> getEmployeeById(@PathVariable Long id){
 		return new ResponseEntity<>(employeeService.getEmployeeById(id),new HttpHeaders(),HttpStatus.OK);
 	}
-	
-	
+
+
 	@PostMapping("/employee")
 	public ResponseEntity<String> addEmployee(@RequestBody Employee employee){
-		
+
 		return new ResponseEntity<>(employeeService.addEmployee(employee),new HttpHeaders(),HttpStatus.CREATED);
 	}
-	
+
 	@PostMapping("/employee/login")
 	public ResponseEntity<Boolean> employeeLogin(@RequestBody Employee employee){
-		
 		return new ResponseEntity<>(employeeService.employeeLogin(employee),new HttpHeaders(),HttpStatus.OK);
 	}
 
 	@PostMapping("/employee/loginAdmin")
-	public ResponseEntity<Boolean> employeeLoginAdmin(@RequestBody Employee employee) throws InvalidKeySpecException, NoSuchAlgorithmException {
-		final Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
-			employee.getEmail(),	employee.getPassword()	));
-
-		SecurityContextHolder.getContext().setAuthentication(authentication);
-
+	public ResponseEntity employeeLoginAdmin(@RequestBody Employee employee) throws InvalidKeySpecException, NoSuchAlgorithmException {
+		JWTTokenHelper jWTTokenHelper = new JWTTokenHelper();
 		String jwtToken=jWTTokenHelper.generateToken(employee.getPassword());
 		HttpHeaders headers = new HttpHeaders();
+		SecurityContext context = SecurityContextHolder.getContext();
+		Authentication authentication = context.getAuthentication();
+		System.out.println(jwtToken);
 		headers.add("token", jwtToken);
-
-		return new ResponseEntity<>(headers,HttpStatus.OK);
+		return new ResponseEntity(headers, headers,HttpStatus.OK);
 	}
 
 	@PutMapping("/employee/{id}")
 	public ResponseEntity<String> updateEmployee(@PathVariable Long id, @RequestBody Employee employee){
-		
+
 		return new ResponseEntity<>(employeeService.updateEmployee(id,employee),new HttpHeaders(),HttpStatus.OK);
 	}
-	
+
 	@DeleteMapping("/employee/{id}")
 	public ResponseEntity<String> deleteEmployee(@PathVariable Long id){
-		
+
 		return new ResponseEntity<>(employeeService.deleteEmployee(id),new HttpHeaders(),HttpStatus.OK);
 	}
-	
-	
+
+
 	@ExceptionHandler(IdNotFoundException.class)
 	public ResponseEntity<String> userNotFound(IdNotFoundException e) {
 		return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
 	}
-	
+
 	@ExceptionHandler(DuplicateIdException.class)
 	public ResponseEntity<String> duplicateIdFound(DuplicateIdException e) {
 		return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);

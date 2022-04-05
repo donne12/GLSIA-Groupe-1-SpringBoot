@@ -17,13 +17,22 @@ export class LoginComponentAdmin implements OnInit {
   ngOnInit(): void {}
 
   onLogin(credential: any) {
-    this.employeeService.loginValidationAdmin(credential).subscribe((data) => {
-      if (data == 'true') {
-        window.alert('Connexion réussie. Bienvenue Admin!');
-        this.router.navigate(['admin']);
-      } else {
-        window.alert("Connexion à l'admin échouée.");
-      }
-    });
+    console.log(credential);
+    if (credential['email'] == '' || credential['password'] == '') {
+      window.alert("Met tes identifiants d'abord stp 🙂!");
+    } else {
+      this.employeeService
+        .loginValidationAdmin(credential)
+        .subscribe((data) => {
+          if (data && (credential['email'] == 'admin@gmail.com' && credential['password'] == 'admin')) {
+            console.log(data);
+            window.alert('Connexion réussie. Bienvenue Admin!');
+            this.router.navigate(['admin']);
+          } else {
+       
+            window.alert("Connexion à l'admin échouée.");
+          }
+        });
+    }
   }
 }

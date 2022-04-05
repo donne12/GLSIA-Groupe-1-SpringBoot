@@ -16,26 +16,31 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   onLogin(credential: any) {
-    if (
-      credential.email == 'admin@gmail.com' &&
-      credential.password == 'admin'
-    ) {
-      window.alert("T'es pas du coté admin frère !");
-      // this.router.navigate(['admin']);
-    } else if (
-      credential.email == 'admin@gmail.com' &&
-      credential.password != 'admin'
-    ) {
-      window.alert("Connexion à l'admin échouée.");
-    } else {
-      this.employeeService.loginValidation(credential).subscribe((data) => {
-        if (data == 'true') {
-          window.alert('Connexion réussie. Bienvenue!');
-          this.router.navigate(['staff']);
-        } else {
-          window.alert('Echec de la connexion.');
-        }
-      });
+    if(credential["email"]=='' || credential["password"]==''){
+      window.alert("Met tes identifiants d'abord stp 🙂!");
+    }else{
+      if (
+        credential.email == 'admin@gmail.com' &&
+        credential.password == 'admin'
+      ) {
+        window.alert("T'es pas du coté admin frère !");
+        // this.router.navigate(['admin']);
+      } else if (
+        credential.email == 'admin@gmail.com' &&
+        credential.password != 'admin'
+      ) {
+        window.alert("Connexion à l'admin échouée.");
+      } else {
+        this.employeeService.loginValidation(credential).subscribe((data) => {
+          if (data == 'true') {
+            window.alert('Connexion réussie. Bienvenue!');
+            this.router.navigate(['staff']);
+          } else {
+            window.alert('Echec de la connexion.');
+          }
+        });
+      }
     }
+
   }
 }

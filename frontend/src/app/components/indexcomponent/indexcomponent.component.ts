@@ -17,4 +17,8 @@ export class IndexcomponentComponent implements OnInit {
     this.router.navigate(['login']);
   }
 
+  onLogin2(){
+    this.router.navigate(['loginAdmin']);
+  }
+
 }

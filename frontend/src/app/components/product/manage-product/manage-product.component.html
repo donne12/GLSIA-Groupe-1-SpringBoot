@@ -1,6 +1,12 @@
 <app-admin></app-admin>
 <div>
-    <table class="center">
+    <h5 style="text-align: center;">Nombre d'articles en stock: {{viewProduct.length}}</h5>
+    <br>
+
+    <input id="filter" type="text" class="form-control" placeholder="Tapez votre recherche ici..."
+        style=" margin-left: 150px; padding-right: 150px; width: 400px;">
+    <br><br>
+    <table id="dataTables-example3" class="center" style="text-align: center;">
         <thead>
             <tr>
                 <th>Id</th>
@@ -16,9 +22,9 @@
                 <th colspan="2">Action</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="searchable">
             <tr *ngFor="let viewproduct of viewProduct">
-                
+
                 <td>{{viewproduct.id}}</td>
                 <td><img [src]="viewproduct.image" alt="Image non chargée" width="100px" height="100px"></td>
 

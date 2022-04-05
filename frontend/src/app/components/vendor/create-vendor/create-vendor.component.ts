@@ -28,7 +28,7 @@ export class CreateVendorComponent implements OnInit {
     this.vendorService
     .createVendor(this.vendor).subscribe(data => {
       console.log(data)
-      window.alert("Création du vendeur faite avec succès.");
+      window.alert("Création du fournisseur faite avec succès.");
       this.vendor = new Vendor();
       this.gotoList();
     }, 

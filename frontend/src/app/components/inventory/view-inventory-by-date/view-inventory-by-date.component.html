@@ -2,15 +2,15 @@
 <div>
     <form #userForm="ngForm" (ngSubmit)='getInventory(userForm.value)' style=" margin-left: 400px;">
     <div>
-        <label>Enter the start date of the manufactured range</label>
+        <label>Saisir la date de début de la gamme fabriquée</label>
         <div class="col-sm-6">
-        <input type="date" placeholder="Enter the start date of the range" name="start" class="form-control" ngModel required>
+        <input type="date" placeholder="JJ/MM/AAAA" name="start" class="form-control" ngModel required>
         </div>
     </div>
     <div>
-        <label>Enter the end date of the manufactured range</label>
+        <label>Saisir la date de fin de la gamme fabriquée</label>
         <div class="col-sm-6">
-        <input type="date" placeholder="Enter the end date of the range" name="end" class="form-control" ngModel required>
+        <input type="date" placeholder="JJ/MM/AAAA" name="end" class="form-control" ngModel required>
         </div>
     </div>
     <br/>
@@ -33,7 +33,7 @@
             <tr>
               <th>Id</th>
               <th>Nom du produit</th>
-              <th>Vendeur</th>
+              <th>Fournisseur</th>
               <th>Quantité</th>
               <th>Prix d'achat</th>
               <th>Taxe</th>

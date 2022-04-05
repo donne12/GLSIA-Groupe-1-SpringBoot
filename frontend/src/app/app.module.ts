@@ -49,6 +49,7 @@ import { ProcessOrderComponent } from './components/staff/order/process-order/pr
 import { IndexcomponentComponent } from './components/indexcomponent/indexcomponent.component';
 import { LoginComponent } from './components/login/login.component';
 import { LoginComponentAdmin } from './components/loginAdmin/loginAdmin.component';
+import { ViewProductComponentLow } from './components/product/view-product-low/view-product-low.component';
 
 @NgModule({
   declarations: [
@@ -92,7 +93,8 @@ import { LoginComponentAdmin } from './components/loginAdmin/loginAdmin.componen
     AddOrderComponent,
     ProcessOrderComponent,
     IndexcomponentComponent,
-    LoginComponent
+    LoginComponent,
+    ViewProductComponentLow
   ],
   imports: [
     BrowserModule,

@@ -27,18 +27,18 @@
         <li ngbDropdown class="nav-item dropdown">
           <a ngbDropdownToggle class="nav-link dropdown-toggle"  id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Inventaire</a>
           <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item" routerLink="/addinventory">Faire un inventaire</a>
-            <a class="dropdown-item" routerLink="/viewinventory">Voir les inventaires</a>
-            <a class="dropdown-item" routerLink="/manageinventory">Gérer les inventaires</a>
-            <a href="http://localhost:8083/api/inventory/pdf" class="dropdown-item">Générer un PDF</a>
+            <a class="dropdown-item" routerLink="/addinventory">Faire un approvisionnement</a>
+            <a class="dropdown-item" routerLink="/viewinventory">Voir les approvisionnements</a>
+            <a class="dropdown-item" routerLink="/manageinventory">Gérer les approvisionnements</a>
+            <a href="http://localhost:8083/api/inventory/pdf" class="dropdown-item">Générer un PDF des approvisionnements</a>
           </div>
         </li>
 
         <li ngbDropdown class="nav-item dropdown">
-          <a ngbDropdownToggle class="nav-link dropdown-toggle"  id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Vendeurs</a>
+          <a ngbDropdownToggle class="nav-link dropdown-toggle"  id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Fournisseurs</a>
           <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item" routerLink="/addvendors">Ajouter un vendeur</a>
-            <a class="dropdown-item" routerLink="/viewvendors">Gérer les vendeurs</a>
+            <a class="dropdown-item" routerLink="/addvendors">Ajouter un fournisseur</a>
+            <a class="dropdown-item" routerLink="/viewvendors">Gérer les fournisseurs</a>
           </div>
         </li>
 
@@ -68,6 +68,6 @@
       </ul>
     </div>
     <div>
-      <button type="button" class="btn btn-secondary" (click)="logout()">Se déconnecter 🚶🏾‍♂️</button>
+      <button type="button" class="btn btn-danger" (click)="logout()">Se déconnecter 🚶🏾‍♂️</button>
     </div>
   </nav>

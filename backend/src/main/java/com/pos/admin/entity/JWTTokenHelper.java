@@ -6,7 +6,6 @@ import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
@@ -17,14 +16,10 @@ import io.jsonwebtoken.SignatureAlgorithm;
 @Component
 public class JWTTokenHelper {
 
-
-    @Value("${jwt.auth.app}")
     private String appName;
 
-    @Value("${jwt.auth.secret_key}")
     private String secretKey;
 
-    @Value("${jwt.auth.expires_in}")
     private int expiresIn;
 
     private SignatureAlgorithm SIGNATURE_ALGORITHM = SignatureAlgorithm.HS256;
@@ -57,7 +52,7 @@ public class JWTTokenHelper {
     }
 
     public String generateToken(String username) throws InvalidKeySpecException, NoSuchAlgorithmException {
-
+        secretKey="bossAdmin";
         return Jwts.builder()
                 .setIssuer( appName )
                 .setSubject(username)

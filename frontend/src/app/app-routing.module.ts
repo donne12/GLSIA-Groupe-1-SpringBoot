@@ -27,6 +27,7 @@ import { AddProductComponent } from './components/product/add-product/add-produc
 import { ManageProductComponent } from './components/product/manage-product/manage-product.component';
 import { UpdateProductComponent } from './components/product/update-product/update-product.component';
 import { ViewProductComponent } from './components/product/view-product/view-product.component';
+import { ViewProductComponentLow } from './components/product/view-product-low/view-product-low.component';
 import { AddAddressComponent } from './components/staff/address/add-address/add-address.component';
 import { AddCustomerComponent } from './components/staff/customer/add-customer/add-customer.component';
 import { ViewCustomerComponent } from './components/staff/customer/view-customer/view-customer.component';
@@ -49,6 +50,7 @@ const routes: Routes = [
   { path: 'updateCategory', component: UpdateCategoryComponent },
   { path: 'addProduct', component: AddProductComponent },
   { path: 'viewProduct', component: ViewProductComponent },
+  { path: 'viewProductLow', component: ViewProductComponentLow },
   { path: 'addinventory', component: AddInventoryComponent },
   { path: 'manageProduct', component: ManageProductComponent },
   { path: 'updateProduct', component: UpdateProductComponent },

@@ -4,15 +4,13 @@ import {
   InventoryService,
 } from 'src/app/services/inventory/inventory.service';
 import { ProductService } from 'src/app/services/product/product.service';
-import { ViewInventoryComponent } from '../../inventory/view-inventory/view-inventory.component';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-product',
-  templateUrl: './view-product.component.html',
-  styleUrls: ['./view-product.component.css'],
+  templateUrl: './view-product-low.component.html',
+  styleUrls: ['./view-product-low.component.css'],
 })
-export class ViewProductComponent implements OnInit {
+export class ViewProductComponentLow implements OnInit {
   public viewProduct?: any = [];
   public viewInventory?: any = [];
   public viewProductExpiredDates?: any = [];
@@ -24,7 +22,6 @@ export class ViewProductComponent implements OnInit {
 
   public today: Date = new Date();
   constructor(
-    private router: Router,
     private productService: ProductService,
     private inventoryService: InventoryService
   ) {}
@@ -37,11 +34,5 @@ export class ViewProductComponent implements OnInit {
       this.viewInventory = data;
       this.setProdctExpiredDate();
     });
-  }
-
-  moveToLow() {
-    sessionStorage.clear();
-    localStorage.clear();
-    this.router.navigate(['viewProductLow']);
   }
 }
