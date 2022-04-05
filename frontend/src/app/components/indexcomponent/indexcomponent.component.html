@@ -1,28 +1,42 @@
-<div class="container" style="text-align: center">
+<div id="test1" class="container" style="text-align: center">
     <p _ngcontent-dse-c55="" href="#" class="text-center text-primary font-weight-bold h2"
         style="font-weight: 800; letter-spacing: 1px">
-        Bienvenue dans l'application de gestion de stock du Groupe 1 Spring Boot !
+        Bienvenue dans l'application de gestion de stock du Groupe 1 Spring Boot ! <br>
+        Année académique: 2021-2022
     </p>
     <br />
     <p _ngcontent-dse-c55="" href="#" class="text-center text-primary font-weight-bold h2"
         style="text-decoration: underline">
         Membres
     </p>
-    <p>
-        <b>ESIAKU Dieudonné</b><br /> <b>BADAYODI Samson</b> <br /><b>LARE Bilal</b><br /> <br />
 
-    </p>
-    <div class="btn btn-warning">
-        <img src="assets/customer.jpg" height="150px" width="150px"> <br>
-        <a href="https://pos-customer.stackblitz.io/" target="_blank">Aller au portail client</a>
+    <h5><b>ESIAKU Dieudonné</b> -- <b>BADAYODI Samson</b> -- <b>LARE Bilal</b><br /> <br /></h5>
+<br>
+<div class="center">
+    <div class="row">
+        <div class="card shadow" style="width: 18rem;">
+            <div class="card-body">
+                <img src="assets/customer.jpg" height="150px" width="150px"> <br>
+                <a href="https://pos-customer.stackblitz.io/" target="_blank">Aller au portail client</a>
+            </div>
+        </div>
+        &nbsp;&nbsp;
+        <div class="card shadow" style="width: 18rem;">
+            <div class="card-body">
+                <img src="assets/staff.png" height="150px" width="150px"> <br>
+                <input (click)="onLogin()" class="btn btn-link" value="Aller au portail staff" />
+            </div>
+        </div>
+        &nbsp;&nbsp;
+        <div class="card shadow" style="width: 18rem;">
+            <div class="card-body">
+                <img src="assets/login.png" height="150px" width="150px"> <br>
+                <input (click)="onLogin2()" class="btn btn-link" value="Aller au portail admin" />
+            </div>
+        </div>
     </div>
-    <br /><br />
-    <div class="btn btn-warning">
-        <img src="assets/staff.png" height="150px" width="150px"> <br>
-        <input (click)="onLogin()" class="btn btn-link" value="Aller au portail staff" />
-    </div> &nbsp;&nbsp;
-    <div class="btn btn-warning">
-        <img src="assets/login.png" height="150px" width="150px"> <br>
-        <input (click)="onLogin2()" class="btn btn-link" value="Aller au portail admin" />
-    </div>
+</div>
+
+   
+
 </div>

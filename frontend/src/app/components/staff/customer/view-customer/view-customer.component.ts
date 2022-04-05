@@ -51,6 +51,7 @@ export class ViewCustomerComponent implements OnInit {
     this.order = new Order();
     this.addrServ.get(id).subscribe((res) => {
       console.log(res);
+      localStorage.setItem('phoneNo',id)
       this.addr = res[0].id;
       this.orderService
         .addOrder(id, this.addr, this.order)

@@ -46,6 +46,7 @@ export class ProcessOrderComponent implements OnInit {
     })
     
   }
+  
   processOrder()
   {
     this.orderDetails=new Order();
@@ -56,7 +57,7 @@ export class ProcessOrderComponent implements OnInit {
     this.orderDetails.totalPrice=this.orderDetail.totalPrice
     this.orderService.updateOrder(this.orderDetail.orderId,this.orderDetails).subscribe(response=>{
       console.log(response)
-      window.alert(response)
+      window.alert("Transaction faite avec succès.")
       this.shouldPdf=false;
     })
   }
@@ -64,6 +65,4 @@ export class ProcessOrderComponent implements OnInit {
   get modeOfPayment(){
     return this.ProcessOrderForm.get('modeOfPayment');
   }
-
-  
 }

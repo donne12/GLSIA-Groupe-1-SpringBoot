@@ -74,7 +74,7 @@ export class AddOrderComponent implements OnInit {
   //   if (confirm('Êtes-vous sûr(e) de vouloir annuler cette commande?')) {
   //     this.orderService.deleteOrder(this.orderId).subscribe((data2) => {
   //       window.alert('Annulation de la commande faite avec succès.');
-     
+
   //     });
   //   } else {
   //     window.alert('Sage décision 😊👌.');
