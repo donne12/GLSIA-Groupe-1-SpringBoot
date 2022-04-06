@@ -25,15 +25,15 @@ public class VenteController {
     public String afficherVente(Model model)
     {
         model.addAttribute("listVente", venteService.showAll());
-        return "vente/showApprov";
+        return "vente/showVente";
     }
 
     @GetMapping("/create")
     public String AfficherFormulaire(Model model)
     {
-
+        model.addAttribute("ListArticle",articleService.showAll());
         model.addAttribute("ListVente", venteService.showAll());
-        return "vente/formApprov";
+        return "vente/formVente";
     }
 
     @PostMapping("/save")

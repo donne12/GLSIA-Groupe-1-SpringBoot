@@ -22,6 +22,7 @@ public class ArticleController {
     @GetMapping("/index")
     public String afficherProduit(Model model)
     {
+
         model.addAttribute("listArticle", articleService.showAll());
         return "article/showProduct";
     }
@@ -44,7 +45,6 @@ public class ArticleController {
         return "redirect:/article/index";
     }
 
-
     @GetMapping("/edit/{id}")
     public String formEditProduit(@PathVariable("id") int id, Model model)
     {
@@ -64,6 +64,5 @@ public class ArticleController {
         articleService.delete(id);
         return "redirect:/article/index";
     }
-
 
 }

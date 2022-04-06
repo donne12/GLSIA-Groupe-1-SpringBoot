@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Liste des Produits</title>
+    <title>Title</title>
     <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" >
 </head>
 <body>
@@ -23,13 +23,13 @@
                         <a class="nav-link" th:href="@{/approv/index}">Approv</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/vente/index}">Vente</a>
+                        <a class="nav-link active" th:href="@{/vente/index}">Vente</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active " th:href="@{/categorie/index}">Categorie</a>
+                        <a class="nav-link" th:href="@{/categorie/index}">Categorie</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " th:href="@{/article/index}">Article</a>
+                        <a class="nav-link" th:href="@{/article/index}">Article</a>
                     </li>
 
                     <li class="nav-item">
@@ -43,37 +43,32 @@
             </div>
         </div>
     </nav>
-
 </header>
-<div class="container" >
-    <h2>Liste des Categories</h2>
-    <form th:action="@{/categorie/create}">
-        <button type="submit" class="btn btn-primary">New Categorie</button>
+
+<div class="container">
+    <h2>Formulaire de saisie de produit</h2>
+
+    <form th:action="@{/vente/save}" method="post">
+        <div class="mb-3">
+            <label  class="form-label">Article</label>
+            <select name="articleId"  required>
+                <option>choisir un article</option>
+                <option th:each="article:${ListArticle}"
+                        th:value="${article.id}"
+                        th:text="${article.libelle}"></option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Quantite</label>
+            <input type="number" name="quantite" value="" class="form-control">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
     </form>
-    <table class="table table-stripped table-hover" >
-        <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">designation</th>
-            <th scope="col">Action</th>
-
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each = "category:${listCategorie}">
-            <th scope="row" th:text = "${category.id}"></th>
-            <td th:text="${category.designation}"></td>
-
-            <td >
-                <a th:href="@{/categorie/edit/{id}(id=${category.id})}">Edit |</a>
-                <a th:href="@{/categorie/delete/{id}(id=${category.id})}">Delete</a>
-            </td>
-        </tr>
-
-        </tbody>
-    </table>
 
 </div>
+
 <script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>

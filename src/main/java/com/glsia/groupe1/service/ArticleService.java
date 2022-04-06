@@ -34,6 +34,7 @@ public class ArticleService {
         return  article;
     }
 
+
     public void delete(int id){
         articleReposytory.deleteById(id);
     }
