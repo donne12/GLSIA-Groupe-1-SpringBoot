@@ -34,6 +34,7 @@ import { ViewInventoryByDateComponent } from './components/inventory/view-invent
 import { DatePipe } from '@angular/common';
 import { DashboardComponent } from './components/staff/dashboard/dashboard.component';
 import { ChartsComponent } from './components/staff/charts/charts.component';
+import { ChartsComponentAdmin } from './components/charts/charts.component';
 import { AddCustomerComponent } from './components/staff/customer/add-customer/add-customer.component';
 import { CreateEmployeeComponent } from './components/create-employee/create-employee.component';
 import { UpdateEmployeeComponent } from './components/update-employee/update-employee.component';
@@ -56,6 +57,7 @@ import { ViewProductComponentLow } from './components/product/view-product-low/v
   declarations: [
     AppComponent,
     LoginComponentAdmin,
+    ChartsComponentAdmin,
     AddCategoryComponent,
     ViewCategoryComponent,
     ManageCategoryComponent,

@@ -1,10 +1,12 @@
 <app-admin></app-admin>
 <div>
-   
+    <h5 style="text-align: center">
+        Nombre d'articles sous le seuil: {{ nbre }}
+    </h5>
     <input id="filter" type="text" class="form-control" placeholder="Tapez votre recherche ici..."
-        style=" margin-left: 150px; padding-right: 150px; width: 400px;"> <br><br>
-    <table id="dataTables-example3" class="table" style="text-align: center;">
-
+        style="margin-left: 150px; padding-right: 150px; width: 400px" />
+    <br /><br />
+    <table id="dataTables-example3" class="table" style="text-align: center">
         <thead>
             <tr>
                 <th>Id</th>
@@ -21,23 +23,21 @@
         </thead>
 
         <tbody *ngFor="let viewproduct of viewProduct" class="searchable">
-
-
             <tr *ngIf="viewproduct.stock < 10" class="text-danger">
-                <td>{{viewproduct.id}}</td>
-                <td><img [src]=viewproduct.image width="100px" height="100px" alt="Image non chargée" /></td>
-                <td>{{viewproduct.name}}</td>
+            
+                <td>{{ viewproduct.id }}</td>
+                <td>
+                    <img [src]="viewproduct.image" width="100px" height="100px" alt="Image non chargée" />
+                </td>
+                <td>{{ viewproduct.name }}</td>
 
-                <td>{{viewproduct.brand}}</td>
+                <td>{{ viewproduct.brand }}</td>
                 <!-- <td>{{viewproduct.mrp}}</td> -->
-                <td>{{viewproduct.description}}</td>
-                <td>{{viewproduct.stock}}</td>
+                <td>{{ viewproduct.description }}</td>
+                <td>{{ viewproduct.stock }}</td>
                 <!-- <td>{{viewproduct.tax}}</td> -->
-                <td>{{viewproduct.category.name}}</td>
+                <td>{{ viewproduct.category.name }}</td>
             </tr>
-
         </tbody>
-
     </table>
-
 </div>

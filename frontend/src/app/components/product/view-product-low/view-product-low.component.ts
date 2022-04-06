@@ -13,6 +13,7 @@ import { ProductService } from 'src/app/services/product/product.service';
 export class ViewProductComponentLow implements OnInit {
   public viewProduct?: any = [];
   public viewInventory?: any = [];
+  public nbre: any;
   public viewProductExpiredDates?: any = [];
   setProdctExpiredDate() {
     for (let p of this.viewInventory) {
@@ -27,8 +28,14 @@ export class ViewProductComponentLow implements OnInit {
   ) {}
 
   ngOnInit(): any {
+    this.nbre=0;
     this.productService.getAllProduct().subscribe((response) => {
       this.viewProduct = response;
+      for (let i = 0; i < this.viewProduct.length; i++) {
+        if(this.viewProduct[i].stock < 10){
+          this.nbre++;
+        }
+      }
     });
     this.inventoryService.getAllInventory().subscribe((data) => {
       this.viewInventory = data;

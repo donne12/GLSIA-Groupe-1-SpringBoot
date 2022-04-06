@@ -28,6 +28,7 @@ import { ManageProductComponent } from './components/product/manage-product/mana
 import { UpdateProductComponent } from './components/product/update-product/update-product.component';
 import { ViewProductComponent } from './components/product/view-product/view-product.component';
 import { ChartsComponent } from './components/staff/charts/charts.component';
+import { ChartsComponentAdmin } from './components/charts/charts.component';
 import { ViewProductComponentLow } from './components/product/view-product-low/view-product-low.component';
 import { AddAddressComponent } from './components/staff/address/add-address/add-address.component';
 import { AddCustomerComponent } from './components/staff/customer/add-customer/add-customer.component';
@@ -45,6 +46,7 @@ import { VendorListComponent } from './components/vendor/vendor-list/vendor-list
 
 const routes: Routes = [
   { path: 'charts', component: ChartsComponent },
+  { path: 'chartsAdmin', component: ChartsComponentAdmin },
   { path: 'admin', component: AdminComponent },
   { path: 'addCategory', component: AddCategoryComponent },
   { path: 'viewCategory', component: ViewCategoryComponent },
