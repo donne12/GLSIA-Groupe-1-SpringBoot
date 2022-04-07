@@ -1,0 +1,31 @@
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="mt-5 border mx-auto p-4" style="max-width:400px;">
+
+          <p class="text-center text-primary font-weight-bold h2" style="font-weight:800;" href="#">GesStock | Groupe
+            1<br> <br> <img src="assets/customer.jpg" height="200px" width="200px">
+            <span class="h6"></span>
+          </p>
+          <p *ngIf="message != ''" class="bg-danger text-white text-center p-3">
+            {{ message }}
+          </p>
+          <form [formGroup]="credentials" (ngSubmit)="login(credentials.value)">
+            <div class="form-group mb-2">
+              <label>Numéro de téléphone</label>
+              <input type="number" formControlName="userId" class="form-control" placeholder="Numéro de téléphone" />
+            </div>
+            <div class="form-group mb-2">
+              <label>Mot de passe</label>
+              <input type="number" formControlName="password" class="form-control" placeholder="Mot de passe" />
+            </div>
+            <div class="form-group">
+              <input type="submit" class="btn btn-primary" value="Se connecter" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

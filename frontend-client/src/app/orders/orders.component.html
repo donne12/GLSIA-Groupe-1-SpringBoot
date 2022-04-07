@@ -1,0 +1,76 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card" style="width: 90%;" *ngFor="let order of orders">
+        <div class="card-body">
+          <div class="col-sm-12 bg-light p-3 border rounded">
+            <div class="hstack gap-5">
+              <div class="bg-light">
+                Date de commande
+                <div>{{ order.date }}</div>
+              </div>
+              <div>
+                <div class="bg-light">
+                  Prix total
+                  <div>{{ order.totalPrice }}</div>
+                </div>
+              </div>
+              
+              <div class="bg-light ms-auto">
+                ID: # 407-6144536-067956{{ order.id }}
+                <div>
+                  <a [routerLink]="['/order', order.orderId]">Voir le contenu</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <a [routerLink]="['/order', order.orderId]">
+                  <img
+                    src="{{ order.orders[0].product.image }}"
+                    class="img-fluid rounded-start"
+                    alt="..."
+                  />
+                </a>
+              </div>
+              <div class="col-md-8">
+                <div class="card-body mt-5">
+                  <div class="d-flex justify-content-between">
+                    <h5 class="card-title">
+                      Commande numéro # 407-6144536-067956{{ order.orderId }}
+                    </h5>
+                    <h6>Prix total:{{ order.totalPrice }}</h6>
+                  </div>
+                  <p class="card-text">Commandé le {{ order.date }}</p>
+
+                  <p class="card-text">
+                    <small class="text-muted">{{ order.status }}</small>
+                  </p>
+                  <div class="d-flex flex-wrap">
+                    <a [routerLink]="['/order', order.orderId]"
+                      ><button class="btn btn-outline-secondary mr-4">
+                        Voir le contenu
+                      </button></a
+                    >&nbsp; &nbsp;
+                    <a
+                      href="http://localhost:8083/api/get-bill/pdf/{{
+                        order.orderId
+                      }}"
+                      target="_blank"
+                      ><button class="btn btn-outline-secondary">
+                        Voir la facture
+                      </button></a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

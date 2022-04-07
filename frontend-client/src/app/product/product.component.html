@@ -1,0 +1,56 @@
+<app-navbar></app-navbar>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-3 p-5">
+      <img class="card-img-top mx-5 w-100" src="{{ product.image }}" alt="Card image" />
+    </div>
+    <div class="col-lg-6 p-5">
+      <h5>
+        {{ product.brand }} {{ product.name }} | {{ product.category.name }}
+      </h5>
+      <p class="text-primary">Marque: {{ product.brand }}</p>
+      <p>
+        <span class="bg-dark text-warning px-2">Choix de l'equipe GesStock</span> for "{{
+        product.brand
+        }}"
+      </p>
+      <hr />
+      <p class="mt-0 mb-0">
+        Prix unitaire: <del>{{ product.mrp + 500 }} FCFA</del>
+      </p>
+      <p class="mt-0 mb-0">
+        Prix: <span class="h5 text-danger">{{ product.mrp }} FCFA</span>
+      </p>
+
+      <div class="d-flex flex-wrap">
+        <div class="flex-item" style="width:80px;font-size:12px">
+          <img
+            src="https://images-na.ssl-images-amazon.com/images/G/31/A2I-Convert/mobile/IconFarm/icon-cod._CB485937110_.png"
+            style="width:40px" />
+          <p class="text-primary">Payez à la livraison</p>
+        </div>
+        <!-- <div class="flex-item" style="width:80px;font-size:12px">
+          <img
+            src="https://images-na.ssl-images-amazon.com/images/G/31/A2I-Convert/mobile/IconFarm/icon-returns._CB484059092_.png"
+            style="width:40px" />
+          <p class="text-primary">7 jours de remplacement</p>
+        </div> -->
+        <div class="flex-item" style="width:80px;font-size:12px">
+          <img
+            src="https://images-na.ssl-images-amazon.com/images/G/31/A2I-Convert/mobile/IconFarm/icon-warranty._CB485935626_.png"
+            style="width:40px" />
+          <p class="text-primary">1 an de garantie</p>
+        </div>
+      </div>
+      <hr />
+      <h5 class="text-success">En stock.</h5>
+      <p>Catégorie: {{ product.category.name }}</p>
+      <h6>A propos de ce produit</h6>
+      <p>{{ product.description }}</p>
+    </div>
+    <div class="col-lg-3">
+      <p class="mb-0">Publicité</p>
+      <img src="https://techenafrique.com/wp-content/uploads/2021/11/FB_IMG_1636042949123.jpg" alt="La pub 😏"  width="300px" height="300px" />
+    </div>
+  </div>
+</div>

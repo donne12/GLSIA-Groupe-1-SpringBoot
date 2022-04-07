@@ -1,0 +1,38 @@
+<app-navbar></app-navbar>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-12 p-3 border mx-auto" style="max-width:400px">
+      <h3 class="mb-3 text">Update your profile</h3>
+      <form
+        [formGroup]="formProfile"
+        (ngSubmit)="updateProfile(formProfile.value)"
+      >
+        <input type="hidden" formControlName="id" id="id" />
+        <div class="form-group">
+          <label for="title">Name</label>
+          <input
+            type="text"
+            formControlName="name"
+            id="name"
+            class="form-control"
+            required="required"
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="tel"
+            formControlName="email"
+            id="email"
+            class="form-control"
+            required="required"
+          />
+        </div>
+
+        <div class="form-group">
+          <input type="submit" value="Update" class="btn btn-success mt-3" />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

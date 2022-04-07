@@ -1,0 +1,29 @@
+<app-navbar></app-navbar>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="mt-5 border mx-auto p-4" style="max-width:400px;">
+          <h6 class="text-center">Profile</h6>
+          <table class="table no-border">
+            <tr>
+              <td>Name</td>
+              <td>{{ profile.name }}</td>
+            </tr>
+            <tr>
+              <td>Phone Number</td>
+              <td>{{ profile.phoneNumber }}</td>
+            </tr>
+            <tr>
+              <td>Email</td>
+              <td>{{ profile.email }}</td>
+            </tr>
+          </table>
+          <!--<button class="btn btn-warning" routerLink="/edit-profile">
+            Edit Profile
+          </button>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

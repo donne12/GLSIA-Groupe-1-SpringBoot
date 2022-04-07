@@ -1,0 +1,75 @@
+<app-navbar></app-navbar>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-12">
+      <div>
+        <div class="
+            shadow-none
+            p-3
+            mb-5
+            bg-light
+            rounded
+            d-flex
+            justify-content-between
+          ">
+          <div class="overflow-auto"></div>
+          <div>
+            <b>Méthode de paiment</b><br />
+            {{ order.modeOfPayment }}
+          </div>
+          <div>
+            <b>Résumé de la commande</b><br />
+            <table>
+              <tr>
+                <td></td>
+              </tr>
+            </table>
+            Prix des produits: {{ order.totalPrice }}<br />
+          </div>
+        </div>
+      </div>
+
+      <p></p>
+
+      <div>
+        <div class="
+            shadow-none
+            p-3
+            mb-5
+            bg-light
+            rounded
+            d-flex
+            flex-wrap
+            justify-content-between
+          ">
+          <div class="row mb-3 border" *ngFor="let orderItem of order.orders">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="{{ orderItem.product.image }}" class="img-fluid rounded-start" alt="Image" height="200px" width="200px"/>
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    {{ orderItem.product.brand }} |
+                    {{ orderItem.product.name }} |
+                    {{ orderItem.product.category.name }}
+                  </h5>
+                  <p class="card-text">
+                    {{ orderItem.product.description }}
+                  </p>
+                  <label>
+                    Prix:
+                    <span style="color:red;">
+                      {{ orderItem.product.mrp + 10 }} FCFA
+                    </span> </label><br />
+                  <label>
+                    <span class="text-decoration-line-through">{{ orderItem.product.mrp }} FCFA</span></label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

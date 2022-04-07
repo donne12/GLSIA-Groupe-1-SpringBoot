@@ -1,0 +1,43 @@
+<header class="bg-dark">
+  <div class="container bg-dark">
+    <div class="row">
+      <div class="col-md-12">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark mx-3">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse w-100" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link text-white" routerLink="/home"><br /><span style="font-weight:700">Acceuil</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" routerLink="/profile">Bonjour, {{ name }}<br /><span
+                    style="font-weight:700">Compte & Réglages</span></a>
+              </li>
+              <li class="nav-item bg-dark text-center" style="width:50vw">
+                <a id="rgb" class="
+                    navbar-brand
+                    text-primary
+                    font-weight-bold
+                    h2
+                    text-center
+                  "  routerLink="/home">GesStock | Client <span
+                    class="h6"></span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" routerLink="/orders"><span style="font-weight:700">Commandes</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" routerLink="/logout"><span style="font-weight:700">Se
+                    déconnecter</span></a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>

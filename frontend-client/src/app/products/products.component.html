@@ -1,0 +1,27 @@
+<section>
+  <img src="https://swiver.io/wp-content/uploads/2021/03/hero-stock-1024x578.png.webp" class="w-100 h-70" />
+  <div class="container mt-5">
+    <div class="row">
+      <div class="" *ngFor="let product of products">
+        <div *ngIf="product.stock != 0">
+          <div class="img" style="height:200px">
+            <img class="card-img-top mx-5" src="{{ product.image }}" alt="Image" style="max-height:100%;width:auto" />
+          </div>
+          <div class="card-body">
+            <h6 class="card-title">
+              {{
+              product.brand + ' ' + product.name + ' ' + product.category.name
+              }}
+            </h6>
+            <h4 class="text-danger">
+              {{ product.mrp }} FCFA
+              <span class="h6 strike"><del>{{ product.mrp + 200 }} FCFA</del></span>
+            </h4>
+            <p></p>
+            <a [routerLink]="['/product', product.id]">Détails</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
