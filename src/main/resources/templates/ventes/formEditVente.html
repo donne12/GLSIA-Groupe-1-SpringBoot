@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Mofifier un produit</title>
     <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" >
 </head>
 <body>
@@ -23,10 +23,7 @@
                         <a class="nav-link" th:href="@{/approv/index}">Approv</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" th:href="@{/vente/index}">Panier</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/vente/index}">Vente</a>
+                        <a class="nav-link active" th:href="@{/vente/index}">Vente</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" th:href="@{/categorie/index}">Categorie</a>
@@ -46,13 +43,29 @@
             </div>
         </div>
     </nav>
+
 </header>
 
 <div class="container">
-    <h2>Formulaire de saisie de produit</h2>
+    <h2>Formulaire de modification de produit</h2>
 
-    <form th:action="@{/vente/save}" method="post">
-
+    <form th:action="@{/venteArticle/edit}" th:object="${unVente}" method="post">
+        <div class="mb-3">
+            <input type="hidden" th:field="*{id}"   class="form-control">
+            <input type="hidden" th:field="*{venteId}"   class="form-control">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Article</label>
+            <select name="articleId" required>
+                <option th:each="ventes:${unVente.article}"
+                        th:value="${ventes.id}"
+                        th:text="${ventes.libelle}"></option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Quantité</label>
+            <input type="number" th:field="*{quantite}"  class="form-control">
+        </div>
 
         <button type="submit" class="btn btn-primary">Enregistrer</button>
     </form>

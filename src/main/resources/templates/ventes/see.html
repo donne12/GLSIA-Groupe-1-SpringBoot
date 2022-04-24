@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Liste des Ventes</title>
     <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" >
 </head>
 <body>
@@ -23,10 +23,10 @@
                         <a class="nav-link" th:href="@{/approv/index}">Approv</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" th:href="@{/vente/index}">Panier</a>
+                        <a class="nav-link" th:href="@{/vente/index}">Panier</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/vente/index}">Vente</a>
+                        <a class="nav-link active" th:href="@{/venteArticle/index}">Vente</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" th:href="@{/categorie/index}">Categorie</a>
@@ -34,7 +34,6 @@
                     <li class="nav-item">
                         <a class="nav-link" th:href="@{/article/index}">Article</a>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link disabled">Link</a>
                     </li>
@@ -46,19 +45,40 @@
             </div>
         </div>
     </nav>
+
 </header>
 
-<div class="container">
-    <h2>Formulaire de saisie de produit</h2>
-
-    <form th:action="@{/vente/save}" method="post">
-
-
-        <button type="submit" class="btn btn-primary">Enregistrer</button>
+<div class="container" >
+    <h2>Liste des Ventes</h2>
+    <form th:action="@{/vente/index}">
+        <button type="submit" class="btn btn-primary">Vendre</button>
     </form>
 
-</div>
+    <table class="table table-stripped table-hover" >
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Article</th>
+            <th scope="col">Quantité</th>
+            <th scope="col">Date</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each = "vente:${listVentes}">
+            <th scope="row" th:text = "${vente.id}"></th>
+            <td th:text="${vente.article.libelle}"></td>
+            <td th:text="${vente.quantite}"></td>
+            <td th:text="${vente.vente.dateVente}"></td>
+            <td>
+                <a th:href="@{/venteArticle/edit/{id}(id=${vente.id})}">Edit | </a>
+                <a th:href="@{/venteArticle/delete/{id}(id=${vente.id})}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 
+</div>
 <script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>

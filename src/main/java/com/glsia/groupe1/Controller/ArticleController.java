@@ -22,7 +22,6 @@ public class ArticleController {
     @GetMapping("/index")
     public String afficherProduit(Model model)
     {
-
         model.addAttribute("listArticle", articleService.showAll());
         return "article/showProduct";
     }
@@ -63,6 +62,13 @@ public class ArticleController {
     public String deleteProduit(@PathVariable("id") int id){
         articleService.delete(id);
         return "redirect:/article/index";
+    }
+
+    @PostMapping("/search")
+    public String searchApp(String libelle, Model model)
+    {
+        model.addAttribute("listArticle", articleService.search(libelle));
+        return "article/showProduct";
     }
 
 }

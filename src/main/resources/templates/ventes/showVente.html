@@ -23,10 +23,10 @@
                             <a class="nav-link" th:href="@{/approv/index}">Approv</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" th:href="@{/vente/index}">Panier</a>
+                            <a class="nav-link" th:href="@{/vente/index}">Panier</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" th:href="@{/venteArticle/index}">Vente</a>
+                            <a class="nav-link active" th:href="@{/venteArticle/index}">Vente</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" th:href="@{/categorie/index}">Categorie</a>
@@ -50,8 +50,8 @@
 </header>
 
 <div class="container" >
-    <h2>Liste des Panier</h2>
-    <form th:action="@{/vente/create}">
+    <h2>Liste des Ventes</h2>
+    <form th:action="@{/vente/index}">
         <button type="submit" class="btn btn-primary">Vendre</button>
     </form>
 
@@ -59,19 +59,21 @@
         <thead>
         <tr>
             <th scope="col">#</th>
+            <th scope="col">Article</th>
+            <th scope="col">Quantité</th>
             <th scope="col">Date</th>
-
+            <th scope="col">Action</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each = "vente:${listVente}">
+        <tr th:each = "vente:${listVentes}">
             <th scope="row" th:text = "${vente.id}"></th>
-            <td th:text="${vente.dateVente}"></td>
+            <td th:text="${vente.article.libelle}"></td>
+            <td th:text="${vente.quantite}"></td>
+            <td th:text="${vente.vente.dateVente}"></td>
             <td>
-                <a th:href="@{/vente/see/{id}(id=${vente.id})}">See | </a>
-                <a th:href="@{/venteArticle/create/{id}(id=${vente.id})}">Add | </a>
-                <a th:href="@{/vente/cloture/{id}(id=${vente.id})}">Cloture | </a>
-                <a th:href="@{/vente/delete/{id}(id=${vente.id})}">Delete </a>
+                <a th:href="@{/venteArticle/edit/{id}(id=${vente.id})}">Edit | </a>
+                <a th:href="@{/venteArticle/delete/{id}(id=${vente.id})}">Delete</a>
             </td>
         </tr>
         </tbody>

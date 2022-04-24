@@ -23,10 +23,10 @@
                         <a class="nav-link" th:href="@{/approv/index}">Approv</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" th:href="@{/vente/index}">Panier</a>
+                        <a class="nav-link" th:href="@{/vente/index}">Panier</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/vente/index}">Vente</a>
+                        <a class="nav-link active" th:href="@{/vente/index}">Vente</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" th:href="@{/categorie/index}">Categorie</a>
@@ -51,8 +51,22 @@
 <div class="container">
     <h2>Formulaire de saisie de produit</h2>
 
-    <form th:action="@{/vente/save}" method="post">
+    <form th:action="@{/venteArticle/save}" method="post">
+        <div class="mb-3">
+            <label  class="form-label">Article</label>
+            <select name="articleId"  required>
+                <option>choisir un article</option>
+                <option th:each="article:${ListArticles}"
+                        th:value="${article.id}"
+                        th:text="${article.libelle}"></option>
+            </select>
+        </div>
+        <input type="hidden" name="venteId" th:each="vente:${Vente}"  th:value="${Vente.id}" class="form-control">
 
+        <div class="mb-3">
+            <label class="form-label">Quantite</label>
+            <input type="number" name="quantite" value="" class="form-control">
+        </div>
 
         <button type="submit" class="btn btn-primary">Enregistrer</button>
     </form>

@@ -74,6 +74,8 @@ public class ApprovisionnementController {
         return "redirect:/approv/index";
     }
 
+
+
     @GetMapping("/delete/{id}")
     public String deleteProduit(@PathVariable("id") int id){
         Approvisionnement approvisionnement = approvisionnementService.find(id);

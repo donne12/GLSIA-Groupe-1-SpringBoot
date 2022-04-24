@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 @Table(name = "article")
@@ -26,5 +27,7 @@ public class Article {
     private Categorie Categorie;
     private int categoryId;
 
+    @OneToMany(mappedBy = "articleId")
+    Set<VenteArticle> venteArticleSet;
 
 }
