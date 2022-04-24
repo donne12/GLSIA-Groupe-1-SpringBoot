@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" >
+</head>
+<body>
+<header>
+
+    <nav class="navbar navbar-expand-lg  navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar scroll</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                    <li class="nav-item">
+                        <a class="nav-link active " aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/approv/index}">Approv</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/vente/index}">Panier</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/venteArticle/index}">Vente</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/categorie/index}">Categorie</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/article/index}">Article</a>
+                    </li>
+
+                </ul>
+                <a href="/logout" class="btn btn-outline-success">Se Deconnecter</a>
+
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
