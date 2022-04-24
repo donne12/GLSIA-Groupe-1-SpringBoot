@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -18,8 +19,9 @@ public class Vente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private boolean cloture;
+    private double mt;
     private LocalDate dateVente;
 
     @OneToMany(mappedBy = "venteId")
-    Set<VenteArticle> venteArticleSet;
+    List<VenteArticle> venteArticleSet;
 }

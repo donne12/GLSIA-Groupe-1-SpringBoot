@@ -59,6 +59,7 @@
         <thead>
         <tr>
             <th scope="col">#</th>
+            <th scope="col">Montant Total</th>
             <th scope="col">Date</th>
 
         </tr>
@@ -66,10 +67,12 @@
         <tbody>
         <tr th:each = "vente:${listVente}">
             <th scope="row" th:text = "${vente.id}"></th>
+            <th scope="row" th:text = "${vente.mt}"></th>
             <td th:text="${vente.dateVente}"></td>
             <td>
                 <a th:href="@{/vente/see/{id}(id=${vente.id})}">See | </a>
                 <a th:href="@{/venteArticle/create/{id}(id=${vente.id})}">Add | </a>
+                <a th:href="@{/venteArticle/pdf/{id}(id=${vente.id})}">Facture | </a>
                 <a th:href="@{/vente/cloture/{id}(id=${vente.id})}">Cloture | </a>
                 <a th:href="@{/vente/delete/{id}(id=${vente.id})}">Delete </a>
             </td>

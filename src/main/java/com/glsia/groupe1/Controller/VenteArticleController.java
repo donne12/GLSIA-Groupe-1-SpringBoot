@@ -1,17 +1,25 @@
 package com.glsia.groupe1.Controller;
 
+import com.glsia.groupe1.Etats.PDFGenerator;
 import com.glsia.groupe1.models.Article;
 import com.glsia.groupe1.models.Vente;
 import com.glsia.groupe1.models.VenteArticle;
 import com.glsia.groupe1.service.ArticleService;
 import com.glsia.groupe1.service.VenteArticleService;
 import com.glsia.groupe1.service.VenteService;
+import com.lowagie.text.DocumentException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.Date;
+import java.util.List;
 
 @Controller
 @RequestMapping("/venteArticle")
@@ -72,6 +80,25 @@ public class VenteArticleController {
         articleService.save(article);
         venteArticleService.delete(id);
         return "redirect:/vente/index";
+    }
+
+    @GetMapping("/pdf/{id}")
+    public void generatePdf(@PathVariable("id") int id, HttpServletResponse response) throws DocumentException, IOException {
+
+        response.setContentType("application/pdf");
+        DateFormat dateFormat = new SimpleDateFormat("YYYY-MM-DD:HH:MM:SS");
+        String currentDateTime = dateFormat.format(new Date());
+        String headerkey = "Content-Disposition";
+        String headervalue = "attachment; filename=pdf_" + currentDateTime + ".pdf";
+        response.setHeader(headerkey, headervalue);
+
+        List<VenteArticle> venteArticles = venteService.find(id).getVenteArticleSet();
+
+        PDFGenerator generator = new PDFGenerator();
+        generator.setVenteArticles(venteArticles);
+        generator.setTOTAL(venteService.find(id).getMt());
+        generator.generate(response);
+
     }
 
 }

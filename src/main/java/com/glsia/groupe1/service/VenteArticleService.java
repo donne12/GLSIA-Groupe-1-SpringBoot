@@ -1,9 +1,12 @@
 package com.glsia.groupe1.service;
 
 
+import com.glsia.groupe1.models.Article;
 import com.glsia.groupe1.models.Vente;
 import com.glsia.groupe1.models.VenteArticle;
+import com.glsia.groupe1.repository.ArticleReposytory;
 import com.glsia.groupe1.repository.VenteArticleRepository;
+import com.glsia.groupe1.repository.VenteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,9 +23,25 @@ public class VenteArticleService {
     private VenteArticleRepository venteArticleRepository;
     @Autowired
     private EntityManager entityManager;
+    @Autowired
+    private VenteRepository venteRepository;
+    @Autowired
+    private ArticleReposytory articleReposytory;
 
     public void save(VenteArticle venteArticle){
-        venteArticleRepository.save(venteArticle);
+
+        Optional<Vente> venteOptional = venteRepository.findById(venteArticle.getVenteId());
+        Vente vente = venteOptional.get();
+        Optional<Article> articleOptional = articleReposytory.findById(venteArticle.getArticleId());
+        Article article = articleOptional.get();
+        if(venteArticle.getQuantite() <= article.getQteStok()){
+            vente.setMt(vente.getMt() + (venteArticle.getQuantite() * article.getPrix()));
+            venteArticleRepository.save(venteArticle);
+            venteRepository.save(vente);
+        }else {
+            throw new RuntimeException("Quantité d'article insuffisant");
+        }
+
     }
 
     public List<VenteArticle> showAll(){
@@ -44,6 +63,14 @@ public class VenteArticleService {
 
     public void delete(int id){
         venteArticleRepository.deleteById(id);
+        Optional<VenteArticle> venteArticleOptional = venteArticleRepository.findById(id);
+        VenteArticle venteArticle = venteArticleOptional.get();
+        Optional<Vente> venteOptional = venteRepository.findById(venteArticle.getVenteId());
+        Vente vente = venteOptional.get();
+        Optional<Article> articleOptional = articleReposytory.findById(venteArticle.getArticleId());
+        Article article = articleOptional.get();
+        vente.setMt(vente.getMt() - (venteArticle.getQuantite() * article.getPrix()));
+        venteRepository.save(vente);
     }
 
     public List<VenteArticle> showByVenteId(int id){

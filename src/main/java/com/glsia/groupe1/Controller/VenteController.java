@@ -46,6 +46,7 @@ public class VenteController {
     {
         Vente vente = new Vente();
         vente.setDateVente(LocalDate.now());
+        vente.setMt(0);
         vente.setCloture(false);
         venteService.save(vente);
         return "redirect:/vente/index";
@@ -66,8 +67,7 @@ public class VenteController {
 
     @GetMapping("/delete/{id}")
     public String deleteVente(@PathVariable("id") int id){
-        List<VenteArticle> ventes  = new ArrayList<>();
-        ventes =  venteArticleService.showByVenteId(id);
+        List<VenteArticle> ventes  = venteService.find(id).getVenteArticleSet();
         try {
             for (VenteArticle vente :  ventes ) {
                 venteArticleService.delete(vente.getId());
