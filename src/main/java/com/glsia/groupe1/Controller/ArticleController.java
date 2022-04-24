@@ -67,7 +67,12 @@ public class ArticleController {
     @PostMapping("/search")
     public String searchApp(String libelle, Model model)
     {
-        model.addAttribute("listArticle", articleService.search(libelle));
+        if(libelle != ""){
+            model.addAttribute("listArticle", articleService.search(libelle));
+        }else {
+            model.addAttribute("listArticle", articleService.showAll());
+        }
+
         return "article/showProduct";
     }
 

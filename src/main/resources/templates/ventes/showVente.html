@@ -35,14 +35,9 @@
                             <a class="nav-link" th:href="@{/article/index}">Article</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link disabled">Link</a>
-                        </li>
                     </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
+                    <a href="/logout" class="btn btn-outline-success">Se Deconnecter</a>
+
                 </div>
             </div>
         </nav>
@@ -54,6 +49,11 @@
     <form th:action="@{/vente/index}">
         <button type="submit" class="btn btn-primary">Vendre</button>
     </form>
+    <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+
 
     <table class="table table-stripped table-hover" >
         <thead>

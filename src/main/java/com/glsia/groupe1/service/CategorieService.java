@@ -6,6 +6,10 @@ import com.glsia.groupe1.repository.CategorieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityManager;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,6 +17,8 @@ import java.util.Optional;
 public class CategorieService {
     @Autowired
     private CategorieRepository categorieRepository;
+    @Autowired
+    private EntityManager entityManager;
 
     public void save(Categorie categorie){
         categorieRepository.save(categorie);
@@ -36,5 +42,18 @@ public class CategorieService {
 
     public void delete(int id){
         categorieRepository.deleteById(id);
+    }
+    public List<Categorie> search(String libelle){
+
+        CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+
+        CriteriaQuery<Categorie> query = builder.createQuery(Categorie.class);
+        Root<Categorie> i = query.from(Categorie.class);
+        query.select(i);
+        query.where(builder.like(i.get("libelle").as(String.class), "%"+libelle+"%"));
+
+        List<Categorie> categories = entityManager.createQuery(query).getResultList();
+
+        return categories;
     }
 }

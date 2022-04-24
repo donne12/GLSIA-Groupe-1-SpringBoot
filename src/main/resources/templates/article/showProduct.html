@@ -23,7 +23,10 @@
                             <a class="nav-link" th:href="@{/approv/index}">Approv</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" th:href="@{/vente/index}">Vente</a>
+                            <a class="nav-link" th:href="@{/vente/index}">Panier</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/venteArticle/index}">Ventes</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" th:href="@{/categorie/index}">Categorie</a>
@@ -32,14 +35,10 @@
                             <a class="nav-link active" th:href="@{/article/index}">Article</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link disabled">Link</a>
-                        </li>
+
                     </ul>
-                    <form class="d-flex" th:action="@{/article/search}" method="post">
-                        <input class="form-control me-2" type="text" name="libelle" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
+                    <a href="/logout" class="btn btn-outline-success">Se Deconnecter</a>
+
                 </div>
             </div>
         </nav>
@@ -50,6 +49,10 @@
     <h2>Liste des produits</h2>
     <form th:action="@{/article/create}">
         <button type="submit" class="btn btn-primary">New Product</button>
+    </form>
+    <form class="d-flex" th:action="@{/article/search}" method="post">
+        <input class="form-control me-2" type="text" name="libelle" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
 
     <table class="table table-stripped table-hover" >

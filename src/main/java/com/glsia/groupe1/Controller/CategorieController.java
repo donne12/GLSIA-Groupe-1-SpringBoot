@@ -55,6 +55,13 @@ public class CategorieController {
         return "redirect:/categorie/index";
     }
 
+    @PostMapping("/search")
+    public String searchApp(String libelle, Model model)
+    {
+        if(libelle != ""){model.addAttribute("listCategorie", categorieService.search(libelle));}else{        model.addAttribute("listCategorie", categorieService.showAll());}
+
+        return "categorie/showCategorie";
+    }
 
 
 }
