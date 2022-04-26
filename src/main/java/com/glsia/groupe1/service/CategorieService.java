@@ -50,7 +50,7 @@ public class CategorieService {
         CriteriaQuery<Categorie> query = builder.createQuery(Categorie.class);
         Root<Categorie> i = query.from(Categorie.class);
         query.select(i);
-        query.where(builder.like(i.get("libelle").as(String.class), "%"+libelle+"%"));
+        query.where(builder.like(i.get("designation").as(String.class), "%"+libelle+"%"));
 
         List<Categorie> categories = entityManager.createQuery(query).getResultList();
 
