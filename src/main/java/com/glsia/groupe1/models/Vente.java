@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "vente")
@@ -16,11 +17,11 @@ public class Vente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int quantite;
+    private double total;
     private LocalDate dateVente;
 
-    @ManyToOne
-    @JoinColumn(name = "articleId",insertable = false,updatable = false)
-    private Article article;
-    private int articleId;
+    @OneToMany(mappedBy = "vente")
+    private List<LigneVente> ligneVenteList;
+
+
 }

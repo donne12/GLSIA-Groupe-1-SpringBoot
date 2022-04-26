@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "article")
@@ -21,10 +22,14 @@ public class Article {
     private int qteSeuil;
     private double prix;
     private LocalDate dateCreation;
+
     @ManyToOne()
     @JoinColumn(name = "categoryId", insertable = false, updatable = false)
     private Categorie Categorie;
     private int categoryId;
+
+    @OneToMany(mappedBy = "article")
+    private List<LigneVente> ligneVenteList;
 
 
 }
