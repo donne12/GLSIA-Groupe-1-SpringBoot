@@ -41,10 +41,7 @@ public class VenteController {
     public ResponseEntity<Vente> addOneVente(@RequestBody Vente vente){
         vente.setDateVente(LocalDate.now());
         venteService.save(vente);
-     /*   int article_key = vente.getArticleId();
-        Article article = articleService.find(article_key);
-        article.setQteStok(article.getQteStok() - vente.getQuantite());
-        articleService.save(article);*/
+
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
@@ -57,12 +54,7 @@ public class VenteController {
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Article> deleteVente(@PathVariable("id") int id){
         Vente vente = venteService.find(id);
-
-       /* int article_key = vente.getArticleId();
-        Article article = articleService.find(article_key);
-        article.setQteStok(article.getQteStok() + vente.getQuantite());*/
         venteService.delete(id);
-       // articleService.save(article);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }
