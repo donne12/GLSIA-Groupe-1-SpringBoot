@@ -12,7 +12,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -35,7 +34,7 @@ public class LigneVenteController {
 
     @GetMapping(value = "/find/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<LigneVente> getOneLigneVente(@PathVariable("id") int id){
-        LigneVente ligneVente = ligneVenteService.find(id);
+        LigneVente ligneVente = ligneVenteService.find(id) ;
         return new ResponseEntity<>(ligneVente, HttpStatus.OK);
 
     }
@@ -48,6 +47,8 @@ public class LigneVenteController {
         Article article = articleService.find(article_key);
         article.setQteStok(article.getQteStok() - ligneVente.getQuantite());
         articleService.save(article);
+        Vente vente = venteService.find(ligneVente.getVenteId());
+        vente.setTotal(vente.getTotal() + ligneVente.getQuantite());
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
@@ -65,6 +66,8 @@ public class LigneVenteController {
         article.setQteStok(article.getQteStok() + ligneVente.getQuantite());
         venteService.delete(id);
         articleService.save(article);
+        Vente vente = venteService.find(ligneVente.getVenteId());
+        vente.setTotal(vente.getTotal() - ligneVente.getQuantite());
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }

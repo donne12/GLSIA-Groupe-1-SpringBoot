@@ -38,7 +38,9 @@ public class VenteController {
     }
 
     @PostMapping(value = "/add", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Vente> addOneVente(@RequestBody Vente vente){
+    public ResponseEntity<Vente> addOneVente(){
+        Vente vente = null;
+        vente.setTotal(0);
         vente.setDateVente(LocalDate.now());
         venteService.save(vente);
 
