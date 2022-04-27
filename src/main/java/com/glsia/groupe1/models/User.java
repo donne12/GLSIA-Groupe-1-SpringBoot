@@ -10,7 +10,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
-@Table(name = "users")
+@Table(name = "user")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -23,6 +23,15 @@ public class User {
     private String password;
 
     @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "users_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
     private List<Role> roles = new ArrayList<>();
+
+    public void addRole(Role role) {
+        this.roles.add(role);
+    }
 
 }
