@@ -24,7 +24,7 @@ public class GlSiaGroupe1Application {
 	PasswordEncoder passwordEncoder(){
 		return new BCryptPasswordEncoder();
 	}
-
+/*
 	@Bean
 	CommandLineRunner run(RoleService roleService, UserService userService){
 		return args -> {
@@ -43,5 +43,5 @@ public class GlSiaGroupe1Application {
 
 		};
 	}
-
+*/
 }
