@@ -1,25 +1,37 @@
-import logo from './logo.svg';
+import React from 'react';
+import {BrowserRouter,Routes, Route} from 'react-router-dom';
+import Layout from './components/layout';
+import User from './components/User/User';
+import Approv from './components/Article/Article';
+import Article from './components/Article/Article';
+import Vente from './components/Vente/Vente';
+import LigneVente from './components/LigneVente/LigneVente';
+import Categorie from './components/Categorie/Categorie';
+import ErrorPage from './components/ErrorPage';
+import "bootstrap/dist/css/bootstrap.min.css?";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+
+  render () {
+    return (
+  <BrowserRouter>
+    <Layout/>
+    <Routes>
+      <Route path="/" element={<User/>}/>   
+      <Route path="/categorie" element={<Categorie/>}/>
+      <Route path="/article" element={<Article/>}/>
+      <Route path="/approv" element={<Approv/>}/>
+      <Route path="/vente" element={<Vente/>}/>
+      <Route path="/ligneVente" element={<LigneVente/>}/>
+      <Route path="*" element={<ErrorPage/>}/>
+    </Routes> 
+  </BrowserRouter>  
+          );
+  }
 }
+
 
 export default App;
