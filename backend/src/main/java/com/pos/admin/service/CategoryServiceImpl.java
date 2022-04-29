@@ -62,7 +62,11 @@ public class CategoryServiceImpl implements CategoryService{
 		if(optCategory.isPresent()) {
 			return optCategory.get();
 		}else {
+<<<<<<< Updated upstream
     		throw new IdNotFoundException("Sorry, Category ould not be retrived" + ID_NOT_FOUND+ id);
+=======
+    		throw new IdNotFoundException("Sorry, Category could not be retrived" + ID_NOT_FOUND+ id);
+>>>>>>> Stashed changes
     	}
 	}
 	

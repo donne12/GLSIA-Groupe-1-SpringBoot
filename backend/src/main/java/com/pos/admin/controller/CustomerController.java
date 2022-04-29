@@ -22,7 +22,11 @@ import com.pos.admin.service.CustomerService;
 
 @RestController
 @RequestMapping("/api")
+<<<<<<< Updated upstream
 @CrossOrigin("http://localhost:4200")
+=======
+@CrossOrigin("*")
+>>>>>>> Stashed changes
 public class CustomerController {
 	@Autowired
 	CustomerService customerService;

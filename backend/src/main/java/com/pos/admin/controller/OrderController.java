@@ -26,7 +26,11 @@ import com.pos.admin.util.pdfreport.SalesReportPDFGenerator;
 
 @RestController
 @RequestMapping("/api")
+<<<<<<< Updated upstream
 @CrossOrigin("http://localhost:4200")
+=======
+@CrossOrigin("*")
+>>>>>>> Stashed changes
 public class OrderController {
 	@Autowired
 	OrderService orderService;

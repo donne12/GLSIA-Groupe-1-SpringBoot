@@ -25,7 +25,11 @@ import com.pos.admin.service.ProductService;
 
 @RestController
 @RequestMapping("/api")
+<<<<<<< Updated upstream
 @CrossOrigin("http://localhost:4200")
+=======
+@CrossOrigin("*")
+>>>>>>> Stashed changes
 public class ProductController {
 
 	@Autowired
