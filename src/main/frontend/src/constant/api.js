@@ -1,4 +1,4 @@
-export const api = "https://127.0.0.1:8080";
+export const api = "http://localhost:8080";
 
 // CATEGORIE
 export const getAllCategorie = () => {
@@ -14,7 +14,7 @@ export const deleteCategorie = (id) => {
 };
 
 export const addCategorie = () => {
-  return api+"/categorie/add/";
+  return api+"/categorie/add";
 };
 
 // ARTICLE
@@ -31,7 +31,7 @@ return api+`/article/delete/${id}`;
 };
 
 export const addArticle = () => {
-return api+"/article/add/";
+return api+"/article/add";
 };
 
 // APPROVISIONNEMENT
@@ -48,7 +48,7 @@ return api+`/approv/delete/${id}`;
 };
 
 export const addApprov = () => {
-return api+"/approv/add/";
+return api+"/approv/add";
 };
 
 // VENTE
@@ -65,7 +65,7 @@ return api+`/vente/delete/${id}`;
 };
 
 export const addVente = () => {
-return api+"/vente/add/";
+return api+"/vente/add";
 };
 
 // LIGNEVENTE
@@ -82,7 +82,7 @@ return api+`/ligneVente/delete/${id}`;
 };
 
 export const addLigneVente = () => {
-return api+"/ligneVente/add/";
+return api+"/ligneVente/add";
 };
 
 // USER
@@ -99,7 +99,7 @@ return api+`/user/delete/${id}`;
 };
 
 export const addUser = () => {
-return api+"/user/add/";
+return api+"/user/add";
 };
 
 //authentication

@@ -7,11 +7,19 @@ import com.glsia.groupe1.service.UserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import java.sql.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 @SpringBootApplication
 public class GlSiaGroupe1Application {
@@ -20,10 +28,15 @@ public class GlSiaGroupe1Application {
 		SpringApplication.run(GlSiaGroupe1Application.class, args);
 	}
 
+
 	@Bean
 	PasswordEncoder passwordEncoder(){
 		return new BCryptPasswordEncoder();
 	}
+
+
+
+
 /*
 	@Bean
 	CommandLineRunner run(RoleService roleService, UserService userService){
